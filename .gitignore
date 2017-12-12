@@ -1,0 +1,41 @@
+# Unity generated
+[Tt]emp
+[Ll]ibrary
+[Bb]uild
+[Bb]uilds
+**/build_info.txt
+**/build_info.txt.meta
+**/GoogleDependencyGooglePlayGames.xml
+**/Resources/Cache
+**/Resources/Cache.meta
+
+# Ide
+[Ee]xported[Oo]bj/
+[Oo]bj/
+*.svd
+*.userprefs
+*.csproj
+*.pidb
+*.suo
+*.sln
+*.user
+*.unityproj
+*.tmp
+*.booproj
+.idea
+
+# OS
+.DS_STORE
+.DS_STORE?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+[Tt]humbs.db
+[Dd]esktop.ini
+
+# Custom
+!*.dll
+!**/Fmod/[Bb]uild
+**/fmod.log
+**/fmod_editor.log
