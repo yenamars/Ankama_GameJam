@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 57e974b235f4b314091d0e0a0441d672
-timeCreated: 1512839812
+timeCreated: 1513106681
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -116,8 +116,8 @@ TextureImporter:
       name: TemplateTiles_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 224
+        x: 8
+        y: 216
         width: 32
         height: 32
       alignment: 0
@@ -130,8 +130,8 @@ TextureImporter:
       name: TemplateTiles_1
       rect:
         serializedVersion: 2
-        x: 40
-        y: 224
+        x: 48
+        y: 216
         width: 32
         height: 32
       alignment: 0
@@ -144,8 +144,8 @@ TextureImporter:
       name: TemplateTiles_2
       rect:
         serializedVersion: 2
-        x: 80
-        y: 224
+        x: 88
+        y: 216
         width: 32
         height: 32
       alignment: 0
@@ -158,8 +158,8 @@ TextureImporter:
       name: TemplateTiles_3
       rect:
         serializedVersion: 2
-        x: 120
-        y: 224
+        x: 128
+        y: 216
         width: 32
         height: 32
       alignment: 0
@@ -172,8 +172,8 @@ TextureImporter:
       name: TemplateTiles_4
       rect:
         serializedVersion: 2
-        x: 160
-        y: 224
+        x: 168
+        y: 216
         width: 32
         height: 32
       alignment: 0
@@ -186,8 +186,8 @@ TextureImporter:
       name: TemplateTiles_5
       rect:
         serializedVersion: 2
-        x: 0
-        y: 184
+        x: 8
+        y: 176
         width: 32
         height: 32
       alignment: 0
@@ -200,8 +200,8 @@ TextureImporter:
       name: TemplateTiles_6
       rect:
         serializedVersion: 2
-        x: 40
-        y: 184
+        x: 48
+        y: 176
         width: 32
         height: 32
       alignment: 0
@@ -214,8 +214,8 @@ TextureImporter:
       name: TemplateTiles_7
       rect:
         serializedVersion: 2
-        x: 80
-        y: 184
+        x: 88
+        y: 176
         width: 32
         height: 32
       alignment: 0
@@ -228,8 +228,8 @@ TextureImporter:
       name: TemplateTiles_8
       rect:
         serializedVersion: 2
-        x: 120
-        y: 184
+        x: 128
+        y: 176
         width: 32
         height: 32
       alignment: 0
@@ -242,8 +242,8 @@ TextureImporter:
       name: TemplateTiles_9
       rect:
         serializedVersion: 2
-        x: 0
-        y: 144
+        x: 8
+        y: 136
         width: 32
         height: 32
       alignment: 0
@@ -256,8 +256,8 @@ TextureImporter:
       name: TemplateTiles_10
       rect:
         serializedVersion: 2
-        x: 40
-        y: 144
+        x: 48
+        y: 136
         width: 32
         height: 32
       alignment: 0
@@ -270,8 +270,8 @@ TextureImporter:
       name: TemplateTiles_11
       rect:
         serializedVersion: 2
-        x: 80
-        y: 144
+        x: 88
+        y: 136
         width: 32
         height: 32
       alignment: 0
@@ -284,8 +284,8 @@ TextureImporter:
       name: TemplateTiles_12
       rect:
         serializedVersion: 2
-        x: 120
-        y: 144
+        x: 128
+        y: 136
         width: 32
         height: 32
       alignment: 0
@@ -298,8 +298,8 @@ TextureImporter:
       name: TemplateTiles_13
       rect:
         serializedVersion: 2
-        x: 0
-        y: 104
+        x: 8
+        y: 96
         width: 32
         height: 32
       alignment: 0
@@ -312,8 +312,8 @@ TextureImporter:
       name: TemplateTiles_14
       rect:
         serializedVersion: 2
-        x: 40
-        y: 104
+        x: 48
+        y: 96
         width: 32
         height: 32
       alignment: 0
@@ -326,8 +326,8 @@ TextureImporter:
       name: TemplateTiles_15
       rect:
         serializedVersion: 2
-        x: 80
-        y: 104
+        x: 88
+        y: 96
         width: 32
         height: 32
       alignment: 0
@@ -340,8 +340,8 @@ TextureImporter:
       name: TemplateTiles_16
       rect:
         serializedVersion: 2
-        x: 120
-        y: 104
+        x: 128
+        y: 96
         width: 32
         height: 32
       alignment: 0

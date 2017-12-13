@@ -182,11 +182,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9ed0361e978be14c9c812b260c22415, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  acceceleration: 50
-  decceleration: 30
-  airAcceceleration: 50
-  airDecceleration: 0
-  maxHorizontalSpeed: 7
+  speed: 10
+  airSpeed: 10
   jumpForce: 15
   gravity: 40
   checkGroundMask:
@@ -198,8 +195,8 @@ MonoBehaviour:
   tileMap: {fileID: 1202146446}
   tileMapOffset1: {x: -0.25, y: -0.5, z: 0}
   tileMapOffset2: {x: 0.25, y: -0.5, z: 0}
---- !u!61 &442284886
-BoxCollider2D:
+--- !u!58 &442284886
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -211,18 +208,8 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.5}
-  m_EdgeRadius: 0
+  m_Radius: 0.25
 --- !u!50 &442284887
 Rigidbody2D:
   serializedVersion: 4
@@ -3357,7 +3344,7 @@ Camera:
   far clip plane: 20
   field of view: 60
   orthographic: 1
-  orthographic size: 8.4375
+  orthographic size: 8
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

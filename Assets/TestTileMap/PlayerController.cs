@@ -6,11 +6,8 @@ using UnityEngine.Tilemaps;
 public class PlayerController : MonoBehaviour 
 {
     private Rigidbody2D rgdBody2D;
-    [SerializeField] private float acceceleration;
-    [SerializeField] private float decceleration;
-    [SerializeField] private float airAcceceleration;
-    [SerializeField] private float airDecceleration;
-    [SerializeField] private float maxHorizontalSpeed;
+    [SerializeField] private float speed;
+    [SerializeField] private float airSpeed;
     [SerializeField] private float jumpForce;
     [SerializeField] private float gravity;
     [SerializeField] private LayerMask checkGroundMask;
@@ -20,18 +17,17 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Tilemap tileMap;
     [SerializeField] private Vector3 tileMapOffset1;
     [SerializeField] private Vector3 tileMapOffset2;
-    private float move;
     private Vector2 velocity;
     private float horizontalInput;
     private float jump;
     private Transform trsf;
     RaycastHit2D[] checkGroundRay = new RaycastHit2D[1];
-    private BoxCollider2D boxCollider2D;
+    private CircleCollider2D circleCollider2D;
 
 	void Awake () 
     {
         rgdBody2D = GetComponent<Rigidbody2D>();
-        boxCollider2D = GetComponent<BoxCollider2D>();
+        circleCollider2D = GetComponent<CircleCollider2D>();
         trsf = transform;
 	}
 
@@ -43,16 +39,9 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (CheckGround() == true)
+        if (CheckGround(new Vector2(0.0f, -1.0f)) == true)
         {
-            if (horizontalInput > 0.25f || horizontalInput < -0.25f)
-            {
-                move += acceceleration * horizontalInput * Time.fixedDeltaTime;
-            }
-            else
-            {
-                move = Mathf.Lerp(move, 0.0f, Time.fixedDeltaTime * decceleration);
-            }
+            velocity.x = horizontalInput * speed;
 
             if (jump > 0.5f)
             {
@@ -64,47 +53,21 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            if (horizontalInput > 0.25f || horizontalInput < -0.25f)
-            {
-                move += airAcceceleration * horizontalInput * Time.fixedDeltaTime;
-            }
-            else
-            {
-                move = Mathf.Lerp(move, 0.0f, Time.fixedDeltaTime * airDecceleration);
-            }
-
+            velocity.x = horizontalInput * airSpeed;
             velocity.y -= gravity * Time.fixedDeltaTime;
         }
 
-        if (CheckCeil() == true && velocity.y > 0.0f)
+        if (CheckGround(new Vector2(0.0f, 1.0f)) == true && velocity.y > 0.0f)
         {
             velocity.y = 0.0f;
         }
 
-        velocity.x = Mathf.Clamp(move, -maxHorizontalSpeed, maxHorizontalSpeed);
-
         rgdBody2D.velocity = velocity;
     }
 
-    bool CheckGround()
+    bool CheckGround(Vector2 dir)
     {
-        int i = Physics2D.BoxCastNonAlloc(trsf.position, boxCollider2D.size * checkGroundSize, 0.0f, new Vector2(0.0f, -1.0f), checkGroundRay, checkGroundDistance, checkGroundMask, -1.0f, 1.0f);
-
-        if (i > 0)
-        {
-            spriteRenderer.color = new Color(0.0f, 1.0f, 0.0f, 1.0f);
-            return true;
-        }
-        else
-        {
-            spriteRenderer.color = new Color(1.0f, 0.0f, 0.0f, 1.0f);
-            return false;
-        }
-    }
-
-    bool CheckCeil()
-    {
-        int i = Physics2D.BoxCastNonAlloc(trsf.position, boxCollider2D.size * checkGroundSize, 0.0f, new Vector2(0.0f, 1.0f), checkGroundRay, checkGroundDistance, checkGroundMask, -1.0f, 1.0f);
+        int i = Physics2D.CircleCastNonAlloc(rgdBody2D.position, circleCollider2D.radius, dir, checkGroundRay, checkGroundDistance, checkGroundMask, -1.0f, 1.0f);
 
         if (i > 0)
         {
