@@ -7,7 +7,8 @@ public class PlayerMoveControler : MonoBehaviour
 
 	public float Speed;
 	public GameObject Arm;
-	
+    public BaseWeapon weapon;
+
 	[HideInInspector] public Vector3 Direction;
 	[HideInInspector] public Vector3 Orientation;
 
@@ -34,6 +35,15 @@ public class PlayerMoveControler : MonoBehaviour
 
 		float angle = Mathf.Atan(difPosition.y / difPosition.x);
 		Arm.transform.rotation = Quaternion.Euler(0,0,Mathf.Rad2Deg*angle -(difPosition.x > 0?90:-90));
+
+        if (Input.GetMouseButton(0)/* || Input.GetAxis("Fire1") > 0.5f*/)
+        {
+            weapon.Shoot();
+        }
+        else
+        {
+            weapon.StopShoot();
+        }
 	}
 
 	private Camera m_mainCamera;

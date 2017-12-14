@@ -78,6 +78,7 @@ public class StackableShake : MonoBehaviour
 
         if (count > 0)
         {
+            Debug.Log("shake");
             Vector3 shake = new Vector3(0.0f, 0.0f, 0.0f);
 
             for (int i = 0; i < count; i++)

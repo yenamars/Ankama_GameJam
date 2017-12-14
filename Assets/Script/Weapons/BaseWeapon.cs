@@ -56,7 +56,7 @@ public class BaseWeapon : MonoBehaviour
         {
             for (int i = 0; i < cannonsLength; i++)
             {
-                particleProjectile.Shoot(bulletsPerShot);
+                particleProjectile.Shoot(bulletsPerShot, cannons[i]);
 
                 if (delayBetweenCannons > 0.0f)
                 {
