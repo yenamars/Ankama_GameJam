@@ -40,7 +40,7 @@ public class BaseTrap : MonoBehaviour
     {
         if (trapped != null)
         {
-            trapped.Parent.Hit(power, HitType.Shot);
+            trapped.Parent.Hit(power, Vector2.zero);
             trapped.Parent.StopFor(StopDuration);
         }
     }

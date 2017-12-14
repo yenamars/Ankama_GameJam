@@ -23,18 +23,24 @@ public class Actor : MonoBehaviour,IDamageable
 	public virtual void Update()
 	{
 		m_stoppedTimer -= Time.deltaTime;
+		if (m_stoppedTimer > 0)
+		{
+			m_rigidbody.constraints = RigidbodyConstraints2D.FreezeAll;
+			//_rigidbody.velocity = Vector2.zero;
+		}
+		else
+		{
+			
+			m_rigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
+		}
 	}
 	
 	protected void SetVelocity()
 	{
 		if (m_stoppedTimer > 0)
 		{
-			m_rigidbody.constraints = RigidbodyConstraints2D.FreezeAll;
-			m_rigidbody.velocity = Vector2.zero;
 			return;
 		}
-
-		m_rigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
 		if (Direction.magnitude > 1)
 		{
 			float magnitude = Direction.magnitude;
@@ -43,7 +49,8 @@ public class Actor : MonoBehaviour,IDamageable
 		}
 		m_rigidbody.velocity = Direction * Speed;
 	}
-	public void Hit(int damages, HitType hitType)
+	
+	public virtual void Hit(int damages, Vector2 pushForce)
 	{
 		m_lifePoint -= damages;
 		if (m_lifePoint <= 0)
@@ -55,7 +62,7 @@ public class Actor : MonoBehaviour,IDamageable
 	{
 		m_stoppedTimer = i;
 	}
-	public void OnDeath()
+	public virtual void OnDeath()
 	{
 		GameObject.Destroy(gameObject);
 	}

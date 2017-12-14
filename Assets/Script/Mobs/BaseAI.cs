@@ -19,16 +19,13 @@ public class BaseAI : Actor
 	{
 		base.Update();
 		Direction = m_target.transform.position - transform.position;
-		SetVelocity();
-		
+		//m_rigidbody.velocity = Direction*Speed;
 		if (Direction.magnitude > 1)
 		{
 			float magnitude = Direction.magnitude;
 			Direction.x /= magnitude;
 			Direction.y /= magnitude;
 		}
-
-		//m_rigidbody.velocity = Direction*Speed;
         Vector3 force = Direction*Speed;
         if (force.magnitude < maxSpeed)
         {

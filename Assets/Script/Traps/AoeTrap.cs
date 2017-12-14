@@ -14,7 +14,7 @@ public class AoeTrap : BaseTrap
 			Vector3 distanceToTrap = actor.transform.position - transform.position;
 			distanceToTrap.z = 0;
 			if(distanceToTrap.magnitude < range)
-				actor.Hit(power,HitType.Shot);
+				actor.Hit(power,Vector2.zero);
 		}
 	}
 }
