@@ -10,14 +10,18 @@ public class ParticleProjectile : MonoBehaviour
     [SerializeField] private List<ParticleCollisionEvent> collisionEvents = new List<ParticleCollisionEvent>();
 
     private ParticleSystem.Particle[] particles;
+    private Transform trsf;
 
-    public void Initialize()
+    void Awake()
     {
         particles = new ParticleSystem.Particle[pSystem.main.maxParticles];
+        trsf = transform;
     }
 
-    public void Shoot(int count)
+    public void Shoot(int count, Transform cannon)
     {
+        trsf.localPosition = cannon.localPosition;
+        trsf.localRotation = cannon.localRotation;
         pSystem.Emit(count);
     }
 
