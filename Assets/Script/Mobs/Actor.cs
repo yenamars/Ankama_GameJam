@@ -70,10 +70,12 @@ public class Actor : MonoBehaviour,IDamageable
 			OnDeath();
 		}
 	}
+
 	public void StopFor(float i)
 	{
 		m_stoppedTimer = i;
 	}
+
 	public virtual void OnDeath()
 	{
         if (destroyFX != null)

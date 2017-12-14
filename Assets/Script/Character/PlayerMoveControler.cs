@@ -90,6 +90,7 @@ public class PlayerMoveControler : Actor
         Direction = Vector2.zero;
         SetVelocity();
         Arm.SetActive(false);
+
         animator.SetTrigger("Death");
     }
 }
