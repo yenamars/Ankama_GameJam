@@ -11,6 +11,8 @@ public class ParticleProjectile : MonoBehaviour
     [SerializeField] private ParticleSystem flameFX;
     [SerializeField] private Transform impactFX;
     [SerializeField] private Transform bloodFX;
+    [SerializeField] protected AudioSource shootSound;
+    [SerializeField] protected Vector2 shootSoundRandomPitch;
     private List<ParticleCollisionEvent> collisionEvents = new List<ParticleCollisionEvent>();
 
     private Transform trsf;
@@ -36,6 +38,12 @@ public class ParticleProjectile : MonoBehaviour
         {
             flameFXs[i].Play(false);
         }
+
+        if (shootSound != null)
+        {
+            shootSound.pitch = Random.Range(shootSoundRandomPitch.x, shootSoundRandomPitch.y);
+            shootSound.Play();
+        }
     }
 
     void OnParticleCollision(GameObject other)
@@ -60,10 +68,13 @@ public class ParticleProjectile : MonoBehaviour
                 {
                     d.Hit(damages, collisionEvents[i].velocity.normalized * pushForce);
 
-                    bloodFX.position = collisionEvents[i].intersection;
-                    for (int j = 0; j < bloodFXs.Length; j++)
+                    if (other.layer == 9)
                     {
-                        bloodFXs[j].Play(false);
+                        bloodFX.position = collisionEvents[i].intersection;
+                        for (int j = 0; j < bloodFXs.Length; j++)
+                        {
+                            bloodFXs[j].Play(false);
+                        }
                     }
                 }
             }

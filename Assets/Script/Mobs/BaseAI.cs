@@ -11,7 +11,7 @@ public class BaseAI : Actor
 
 	public void Awake()
 	{
-		m_target =GameObject.FindGameObjectWithTag("Player");
+		m_target = GameObject.FindGameObjectWithTag("Player");
 		base.Awake();
 	}
 	

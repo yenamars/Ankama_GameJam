@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BaseTrap : MonoBehaviour
+public class BaseTrap : MonoBehaviour, IDamageable
 {
 
     [Header("Trap")] public int power = 8;
@@ -17,7 +17,7 @@ public class BaseTrap : MonoBehaviour
     public GameObject trapFX;
     public StackableShakeData trapShake;
 
-    public void Awake()
+    public virtual void Awake()
     {
         m_renderer = GetComponentInChildren<SpriteRenderer>();
         m_mobRoot = GameObject.FindGameObjectWithTag("MobRoot");
@@ -36,7 +36,6 @@ public class BaseTrap : MonoBehaviour
 
         m_activeTimer = CoolDown;
         TrapTarget trapped = collider.GetComponent<TrapTarget>();
-
         ApplyEffect(trapped);
     }
 
@@ -49,6 +48,9 @@ public class BaseTrap : MonoBehaviour
         }
     }
 
+    public virtual void Hit(int damages, Vector2 pushForce)
+    {
+    }
 
     private float m_activeTimer;
     private SpriteRenderer m_renderer;

@@ -236,9 +236,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LifePoint: 100
+  destroyFX: {fileID: 1972150123058676, guid: 842877ad246f256439871bf409f5bb23, type: 2}
   Direction: {x: 0, y: 0, z: 0}
-  Speed: 1.5
+  Speed: 3
+  flipWithSpeed: 1
   Arm: {fileID: 1799896649854038}
+  animator: {fileID: 0}
+  maxSpeed: 30
 --- !u!212 &212628114110442998
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -272,7 +276,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 38
   m_Sprite: {fileID: 21300000, guid: ffb796ad18645472d96e6b25381c71b9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

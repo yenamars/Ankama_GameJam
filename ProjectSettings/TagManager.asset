@@ -19,7 +19,7 @@ TagManager:
   - Trap
   - TrapTarget
   - WeaponGround
-  - 
+  - Destructibles
   - 
   - 
   - 
@@ -44,6 +44,9 @@ TagManager:
     locked: 0
   - name: GroundTop
     uniqueID: 3384785693
+    locked: 0
+  - name: GroundFX
+    uniqueID: 3174473715
     locked: 0
   - name: Default
     uniqueID: 0

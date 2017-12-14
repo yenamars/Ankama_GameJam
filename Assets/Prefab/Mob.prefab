@@ -149,9 +149,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LifePoint: 10
+  destroyFX: {fileID: 1972150123058676, guid: 842877ad246f256439871bf409f5bb23, type: 2}
+  Direction: {x: 0, y: 0, z: 0}
   Speed: 3
   Arm: {fileID: 1343873750663300}
-  Direction: {x: 0, y: 0, z: 0}
   maxSpeed: 3
 --- !u!212 &212125198168596264
 SpriteRenderer:

@@ -74,11 +74,11 @@ public class BaseWeapon : MonoBehaviour
     {
         shooting = false;
 
-        if (shootCoroutine != null)
-        {
-            StopCoroutine(shootCoroutine);
-            shootCoroutine = null;
-        }
+//        if (shootCoroutine != null)
+//        {
+//            StopCoroutine(shootCoroutine);
+//            shootCoroutine = null;
+//        }
 
     }
 }

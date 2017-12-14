@@ -39,6 +39,7 @@ GameObject:
   - component: {fileID: 198214870554128614}
   - component: {fileID: 199301442776226906}
   - component: {fileID: 114221849342768248}
+  - component: {fileID: 82318211822101380}
   m_Layer: 0
   m_Name: GunParticle
   m_TagString: Untagged
@@ -226,7 +227,7 @@ GameObject:
   - component: {fileID: 114046072868584672}
   m_Layer: 8
   m_Name: Gun_01
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -253,7 +254,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1956139211512076}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.0165005, y: -5.3975525, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4687321834870628}
@@ -412,6 +413,87 @@ Transform:
   m_Father: {fileID: 4138436621590348}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &82318211822101380
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1182833217471162}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 243321220197644368, guid: 2be76c61441f0bd4cbffa6997d45a050,
+    type: 2}
+  m_audioClip: {fileID: 8300000, guid: 6c278d09213ba1f48955367d86ad1f55, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.8
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!114 &114046072868584672
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -445,12 +527,14 @@ MonoBehaviour:
   damages: 1
   damagesMask:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 8704
   pushForce: 2
   pSystem: {fileID: 198214870554128614}
   flameFX: {fileID: 198395907949722434}
   impactFX: {fileID: 4813219660649386}
   bloodFX: {fileID: 4138436621590348}
+  shootSound: {fileID: 82318211822101380}
+  shootSoundRandomPitch: {x: 0.9, y: 1.1}
 --- !u!198 &198026261910820412
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -511,7 +595,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 829172614
+  randomSeed: 2032014034
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -3876,7 +3960,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1733977937
+  randomSeed: 1144903384
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -10606,7 +10690,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1296268401
+  randomSeed: -2082158206
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -13055,7 +13139,7 @@ ParticleSystem:
     radiusScale: 0.5
     collidesWith:
       serializedVersion: 2
-      m_Bits: 513
+      m_Bits: 8705
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
@@ -13923,7 +14007,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -548816237
+  randomSeed: -1898093163
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -17288,7 +17372,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -560845940
+  randomSeed: -1105102211
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -20650,7 +20734,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -482956592
+  randomSeed: -43947182
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -24015,7 +24099,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -2091303808
+  randomSeed: 1103286239
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -27377,7 +27461,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1245648659
+  randomSeed: 1483477252
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -30739,7 +30823,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1899563271
+  randomSeed: -1728755546
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -34101,7 +34185,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 630907145
+  randomSeed: 763269661
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -37976,9 +38060,9 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1538573733
-  m_SortingLayer: -2
-  m_SortingOrder: 1
+  m_SortingLayerID: -1120493581
+  m_SortingLayer: -1
+  m_SortingOrder: 0
   m_RenderMode: 0
   m_SortMode: 0
   m_MinParticleSize: 0

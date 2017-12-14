@@ -37,7 +37,7 @@ GameObject:
   - component: {fileID: 4805059189250682}
   - component: {fileID: 58978770364692426}
   - component: {fileID: 114548974971191138}
-  - component: {fileID: 50223877984023986}
+  - component: {fileID: 50940650561534016}
   m_Layer: 10
   m_Name: LightningTrap
   m_TagString: Untagged
@@ -52,7 +52,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1941003741958874}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2, y: -4, z: -0.5}
+  m_LocalPosition: {x: 11.526298, y: -5.06691, z: -0.42822266}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4854668578226774}
@@ -72,7 +72,7 @@ Transform:
   m_Father: {fileID: 4805059189250682}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &50223877984023986
+--- !u!50 &50940650561534016
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 1
@@ -126,6 +126,9 @@ MonoBehaviour:
   trapFX: {fileID: 1255197012108220, guid: abdc734e57cd16643bf6157f00f135ef, type: 2}
   trapShake: {fileID: 11400000, guid: 54a48cf3b6aa95d4c9842239893cd400, type: 2}
   range: 2
+  damagesLayer:
+    serializedVersion: 2
+    m_Bits: 8960
 --- !u!212 &212447032016027414
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -159,7 +162,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -910181603
   m_SortingLayer: -1
-  m_SortingOrder: 40
+  m_SortingOrder: 50
   m_Sprite: {fileID: 21300000, guid: 70bec689c67f84be59ec5867d92fb838, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

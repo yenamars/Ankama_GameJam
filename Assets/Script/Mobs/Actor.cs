@@ -5,14 +5,15 @@ using UnityEngine;
 
 public class Actor : MonoBehaviour,IDamageable
 {
-
-
 	[Header("Actor")] public int LifePoint = 10;
-	
+    [Header("FXs")] public GameObject destroyFX;
+
 	[HideInInspector] public Vector3 Direction;
 	public float Speed;
+    public bool flipWithSpeed;
 	public GameObject Arm;
-	
+    public Animator animator;
+
 	public virtual void Awake()
 	{
 		m_rigidbody = GetComponent<Rigidbody2D>();
@@ -29,10 +30,21 @@ public class Actor : MonoBehaviour,IDamageable
 			//_rigidbody.velocity = Vector2.zero;
 		}
 		else
-		{
-			
+		{	
 			m_rigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
 		}
+            
+        if (flipWithSpeed == true)
+        {
+            if (Direction.x < 0.0f)
+            {
+                transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+            }
+            else
+            {
+                transform.localScale = new Vector3(-1.0f, 1.0f, 1.0f);
+            }
+        }
 	}
 	
 	protected void SetVelocity()
@@ -64,6 +76,11 @@ public class Actor : MonoBehaviour,IDamageable
 	}
 	public virtual void OnDeath()
 	{
+        if (destroyFX != null)
+        {
+            Instantiate(destroyFX, transform.position, new Quaternion(0.0f, 0.0f, 0.0f, 1.0f));
+        }
+
 		GameObject.Destroy(gameObject);
 	}
 
