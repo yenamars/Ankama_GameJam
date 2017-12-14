@@ -10,17 +10,20 @@ public class ParticleProjectile : MonoBehaviour
     [SerializeField] private ParticleSystem pSystem;
     [SerializeField] private ParticleSystem flameFX;
     [SerializeField] private Transform impactFX;
+    [SerializeField] private Transform bloodFX;
     private List<ParticleCollisionEvent> collisionEvents = new List<ParticleCollisionEvent>();
 
     private Transform trsf;
     private ParticleSystem[] flameFXs;
     private ParticleSystem[] impactFXs;
+    private ParticleSystem[] bloodFXs;
 
     void Awake()
     {
         trsf = transform;
         flameFXs = flameFX.gameObject.GetComponentsInChildren<ParticleSystem>();
         impactFXs = impactFX.gameObject.GetComponentsInChildren<ParticleSystem>();
+        bloodFXs = bloodFX.gameObject.GetComponentsInChildren<ParticleSystem>();
     }
 
     public void Shoot(int count, Transform cannon)
@@ -56,6 +59,12 @@ public class ParticleProjectile : MonoBehaviour
                 for (int i = 0; i < collisionsCount; i++)
                 {
                     d.Hit(damages, collisionEvents[i].velocity.normalized * pushForce);
+
+                    bloodFX.position = collisionEvents[i].intersection;
+                    for (int j = 0; j < bloodFXs.Length; j++)
+                    {
+                        bloodFXs[j].Play(false);
+                    }
                 }
             }
         }
