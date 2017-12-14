@@ -10,11 +10,6 @@ public class PlayerWeapon : BaseWeapon
     protected override void Awake()
     {
         base.Awake();
-
-        if (shakeData != null)
-        {
-            stackableShake = StackableShake.instance;
-        }
     }
 
     public override void Shoot()
@@ -43,7 +38,8 @@ public class PlayerWeapon : BaseWeapon
             }
 
             if (shakeData != null)
-            {StackableShake.instance.Shake(shakeData);
+            {
+                StackableShake.instance.Shake(shakeData);
             }
 
             yield return waitShootRate;

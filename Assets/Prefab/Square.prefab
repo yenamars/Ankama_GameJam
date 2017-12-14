@@ -116,7 +116,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1537774529231934}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4510054951364464}
@@ -129,7 +129,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1155246384426920}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4510054951364464}
@@ -242,7 +242,7 @@ MonoBehaviour:
   damages: 1
   damagesMask:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 768
   pSystem: {fileID: 198692581782298890}
 --- !u!114 &114818873471647766
 MonoBehaviour:
@@ -321,7 +321,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1491197146
+  randomSeed: -545270360
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -2770,7 +2770,7 @@ ParticleSystem:
     radiusScale: 0.5
     collidesWith:
       serializedVersion: 2
-      m_Bits: 1
+      m_Bits: 769
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
