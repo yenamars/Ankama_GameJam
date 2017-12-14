@@ -18,7 +18,7 @@ public class Actor : MonoBehaviour,IDamageable
 		m_lifePoint = LifePoint;
 	}
 	
-	public void Hit(int damages, HitType hitType)
+    public virtual void Hit(int damages, Vector2 pushForce)
 	{
 		m_lifePoint -= damages;
 		if (m_lifePoint <= 0)

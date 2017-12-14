@@ -1,11 +1,6 @@
-﻿public enum HitType
-{
-    Shot = 0,
-    Collision = 1,
-    InstaKill = 2
-}
+﻿using UnityEngine;
 
 public interface IDamageable
 {
-    void Hit(int damages, HitType hitType);
+    void Hit(int damages, Vector2 pushForce);
 }

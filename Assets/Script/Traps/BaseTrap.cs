@@ -23,7 +23,7 @@ public class BaseTrap : MonoBehaviour
 
         if (trapped != null)
         {
-            trapped.Hit(power,HitType.Shot);
+            trapped.Hit(power, Vector2.zero);
         }
     }
 
