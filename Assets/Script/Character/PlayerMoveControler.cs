@@ -1,22 +1,15 @@
-﻿using System.Collections;
+﻿﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMoveControler : MonoBehaviour
+public class PlayerMoveControler : Actor
 {
 
-	public float Speed;
-	public GameObject Arm;
     public BaseWeapon weapon;
 
 	[HideInInspector] public Vector3 Direction;
 	[HideInInspector] public Vector3 Orientation;
 
-	public void Awake()
-	{
-		m_rigidbody = GetComponent<Rigidbody2D>();
-		m_mainCamera = Camera.main;
-	}
 
 	public void Update()
 	{
@@ -46,6 +39,4 @@ public class PlayerMoveControler : MonoBehaviour
         }
 	}
 
-	private Camera m_mainCamera;
-	private Rigidbody2D m_rigidbody;
 }

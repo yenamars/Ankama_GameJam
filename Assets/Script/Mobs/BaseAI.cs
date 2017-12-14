@@ -6,8 +6,7 @@ public class BaseAI : Actor
 {
 
 
-	[Header("BaseAI")] public float Speed = 7;
-
+	[Header("BaseAI")] 
 	[HideInInspector] public Vector3 Direction;
 
 	public void Awake()
