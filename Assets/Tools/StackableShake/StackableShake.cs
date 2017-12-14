@@ -15,8 +15,11 @@ public class StackableShake : MonoBehaviour
         public float timer = 0.0f;
     }
 
+    public static StackableShake instance;
+
     [SerializeField] private Space space;
     [SerializeField] private float maxShake;
+    [SerializeField] private bool isShakeCamera = false;
     private List<StackableShakeData> m_shakeParams = new List<StackableShakeData>();
     private List<StackableShakeDecay> m_stackableShakeDecay = new List<StackableShakeDecay>();
 
@@ -27,6 +30,11 @@ public class StackableShake : MonoBehaviour
 
     void Awake()
     {
+        if (isShakeCamera == true)
+        {
+            instance = this;
+        }
+
         trsf = transform;
     }
 
