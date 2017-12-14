@@ -31,11 +31,12 @@ public class ParticleProjectile : MonoBehaviour
             return;
         
         int collisionsCount = pSystem.GetCollisionEvents(other, collisionEvents);
-        
+
         if(damagesMask == (damagesMask | (1 << other.layer)))
         {
             IDamageable d = other.GetComponent<IDamageable>();
 
+            
             if (d != null)
             {
                 d.Hit (damages, HitType.Shot);

@@ -43,8 +43,7 @@ public class PlayerWeapon : BaseWeapon
             }
 
             if (shakeData != null)
-            {
-                stackableShake.Shake(shakeData);
+            {StackableShake.instance.Shake(shakeData);
             }
 
             yield return waitShootRate;
