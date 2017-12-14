@@ -5,10 +5,18 @@ using UnityEngine;
 public class PlayerMoveControler : Actor
 {
 
+	public Transform GunRoot;
+	public BaseWeapon Defaultweapon;
+	[HideInInspector]
     public BaseWeapon weapon;
 
 	[HideInInspector] public Vector3 Orientation;
 
+	public override void Awake()
+	{
+		SetWeapon(Defaultweapon);
+		base.Awake();
+	}
 
 	public override void Update()
 	{
@@ -33,5 +41,14 @@ public class PlayerMoveControler : Actor
         }
 	}
 
-	
+
+	public void SetWeapon(BaseWeapon weaponToEquip)
+	{
+		if(GunRoot.transform.childCount > 0)
+			GameObject.Destroy(GunRoot.transform.GetChild(0).gameObject);
+		weapon = GameObject.Instantiate<BaseWeapon>(weaponToEquip, GunRoot);
+		weapon.transform.localPosition = Vector3.zero;
+		weapon.transform.localScale = Vector3.one;
+		weapon.transform.localRotation = Quaternion.identity;
+	}
 }

@@ -13,7 +13,7 @@ public class Actor : MonoBehaviour,IDamageable
 	public float Speed;
 	public GameObject Arm;
 	
-	public void Awake()
+	public virtual void Awake()
 	{
 		m_rigidbody = GetComponent<Rigidbody2D>();
 		m_mainCamera = Camera.main;
