@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - MobRoot
   layers:
   - Default
   - TransparentFX
@@ -16,7 +17,7 @@ TagManager:
   - Player
   - Mobs
   - Trap
-  - 
+  - TrapTarget
   - 
   - 
   - 
@@ -40,6 +41,9 @@ TagManager:
   m_SortingLayers:
   - name: Ground
     uniqueID: 1538573733
+    locked: 0
+  - name: GroundTop
+    uniqueID: 3384785693
     locked: 0
   - name: Default
     uniqueID: 0

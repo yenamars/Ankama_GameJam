@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class BaseAI : Actor
 {
+
+
 	[Header("BaseAI")] 
-	[HideInInspector] public Vector3 Direction;
     public float maxSpeed;
 
 	public void Awake()
@@ -16,7 +17,10 @@ public class BaseAI : Actor
 	
 	public void Update()
 	{
+		base.Update();
 		Direction = m_target.transform.position - transform.position;
+		SetVelocity();
+		
 		if (Direction.magnitude > 1)
 		{
 			float magnitude = Direction.magnitude;

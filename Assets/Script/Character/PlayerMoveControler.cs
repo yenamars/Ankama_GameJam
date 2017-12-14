@@ -7,20 +7,14 @@ public class PlayerMoveControler : Actor
 
     public BaseWeapon weapon;
 
-	[HideInInspector] public Vector3 Direction;
 	[HideInInspector] public Vector3 Orientation;
 
 
-	public void Update()
+	public override void Update()
 	{
+		base.Update();
 		Direction = new Vector3( Input.GetAxis("Horizontal"),Input.GetAxis("Vertical"),0);
-		if (Direction.magnitude > 1)
-		{
-			float magnitude = Direction.magnitude;
-			Direction.x /= magnitude;
-			Direction.y /= magnitude;
-		}
-		m_rigidbody.velocity = Direction*Speed;
+		SetVelocity();
 
 		Vector3 LookTarget = m_mainCamera.ScreenToWorldPoint(Input.mousePosition);
 		LookTarget.z = transform.position.z;
@@ -39,4 +33,5 @@ public class PlayerMoveControler : Actor
         }
 	}
 
+	
 }
