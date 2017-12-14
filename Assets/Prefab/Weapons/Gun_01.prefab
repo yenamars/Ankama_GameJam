@@ -445,7 +445,7 @@ MonoBehaviour:
   damages: 1
   damagesMask:
     serializedVersion: 2
-    m_Bits: 768
+    m_Bits: 512
   pushForce: 2
   pSystem: {fileID: 198214870554128614}
   flameFX: {fileID: 198395907949722434}
@@ -13055,7 +13055,7 @@ ParticleSystem:
     radiusScale: 0.5
     collidesWith:
       serializedVersion: 2
-      m_Bits: 769
+      m_Bits: 513
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5

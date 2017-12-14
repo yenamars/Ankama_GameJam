@@ -426,8 +426,8 @@ MonoBehaviour:
   particleProjectile: {fileID: 114221849342768248}
   cannons:
   - {fileID: 4791333223342844}
-  bulletsPerShot: 5
-  shootRateBase: 0.3
+  bulletsPerShot: 10
+  shootRateBase: 0.5
   delayBetweenCannons: 0
   shooting: 0
   shakeData: {fileID: 11400000, guid: 53287012416fe4a4193741476401c496, type: 2}
@@ -445,8 +445,8 @@ MonoBehaviour:
   damages: 1
   damagesMask:
     serializedVersion: 2
-    m_Bits: 768
-  pushForce: 2
+    m_Bits: 512
+  pushForce: 5
   pSystem: {fileID: 198214870554128614}
   flameFX: {fileID: 198395907949722434}
   impactFX: {fileID: 4813219660649386}
@@ -13055,7 +13055,7 @@ ParticleSystem:
     radiusScale: 0.5
     collidesWith:
       serializedVersion: 2
-      m_Bits: 769
+      m_Bits: 513
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
