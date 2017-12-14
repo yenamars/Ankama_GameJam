@@ -25,9 +25,9 @@ Shader "CapitalismTrap/Sprite/WorldSpaceTexture"
             "CanUseSpriteAtlas"="True"
         }
 
-//        Cull Off
-//        Lighting Off
-//        ZWrite Off
+        Cull Off
+        Lighting Off
+        ZWrite Off
         Blend One OneMinusSrcAlpha
 
         Pass

@@ -1,4 +1,4 @@
-﻿﻿using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,6 +12,10 @@ public class BaseTrap : MonoBehaviour
 
     [Header("Visual")] public Sprite ActiveSprite;
     public Sprite OffSprite;
+
+    [Header("FXs")]
+    public GameObject trapFX;
+    public StackableShakeData trapShake;
 
     public void Awake()
     {
