@@ -505,9 +505,9 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 243321220197644368, guid: 2be76c61441f0bd4cbffa6997d45a050,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: 6c278d09213ba1f48955367d86ad1f55, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 1b793e849246db54c9c982c2f7468943, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.8
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -680,7 +680,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -462246897
+  randomSeed: 1848544379
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -4045,7 +4045,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1430749807
+  randomSeed: -1907587522
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -10775,7 +10775,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 808536738
+  randomSeed: 1327016111
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -14092,7 +14092,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1399557868
+  randomSeed: -1742418233
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -17457,7 +17457,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1952149992
+  randomSeed: -1249035735
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -20819,7 +20819,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 982417753
+  randomSeed: -1242911483
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -24184,7 +24184,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 2078793116
+  randomSeed: -1191619274
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -27546,7 +27546,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -361845605
+  randomSeed: 1060972445
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -30908,7 +30908,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 899511306
+  randomSeed: 184950665
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -34270,7 +34270,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 90794942
+  randomSeed: 628279256
   InitialModule:
     serializedVersion: 3
     enabled: 1

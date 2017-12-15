@@ -311,6 +311,10 @@ MonoBehaviour:
   Defaultweapon: {fileID: 114046072868584672, guid: fabe6762f17581c4ca35cfa618a5762f,
     type: 2}
   weapon: {fileID: 0}
+  fallSound:
+    audioClip: {fileID: 8300000, guid: 660fd58476e14ff4faae9617339c0397, type: 3}
+    volume: 0.7
+    pitch: {x: 2, y: 2.5}
   Orientation: {x: 0, y: 0, z: 0}
   Mask:
     serializedVersion: 2

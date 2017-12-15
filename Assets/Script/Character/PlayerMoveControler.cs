@@ -11,6 +11,7 @@ public class PlayerMoveControler : Actor
 	public BaseWeapon Defaultweapon;
 	[HideInInspector]
     public BaseWeapon weapon;
+    public SoundToPlay fallSound;
 
 	[HideInInspector] public Vector3 Orientation;
     private bool isAlive;
@@ -99,11 +100,14 @@ public class PlayerMoveControler : Actor
 	public void HitGround()
 	{
 		StackableShake.instance.Shake(ShakeData);
+        SoundManager.instance.PlaySound(fallSound);
 	}
+
     public bool IsAlive()
     {
         return isAlive;
     }
+
 	public void SetWeapon(BaseWeapon weaponToEquip)
 	{
 		if(GunRoot.transform.childCount > 0)
