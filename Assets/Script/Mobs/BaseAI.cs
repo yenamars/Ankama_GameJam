@@ -8,8 +8,8 @@ public class BaseAI : Actor
     public float maxSpeed;
     public AudioSource deathSound;
     public Vector2 deathSoundRandomPitch;
-    private bool isAlive;
-    private bool isActive;
+    protected bool isAlive;
+    protected bool isActive;
     private bool finishDeath;
     private Collider2D coll;
 
@@ -30,13 +30,14 @@ public class BaseAI : Actor
         coll.enabled = true;
     }
 
-	public void Update()
+	public virtual void Update()
 	{
         if (isActive == false || isAlive == false)
             return;
 
-        Debug.Log("update");
 		base.Update();
+		if(m_target == null)
+			m_target = GameObject.FindGameObjectWithTag("Player");
 		Direction = m_target.transform.position - transform.position;
 		//m_rigidbody.velocity = Direction*Speed;
 		if (Direction.magnitude > 1)
@@ -144,5 +145,5 @@ public class BaseAI : Actor
         }
     }
 
-	private GameObject m_target;
+	protected GameObject m_target;
 }

@@ -37,6 +37,7 @@ public class Spawner : MonoBehaviour
                 Vector2 r = Random.insideUnitCircle * spawnRange;
                 pool[i].transform.position = trsf.position + new Vector3(r.x, r.y, 0.0f);
                 pool[i].SetActive(true);
+               // Debug.Log("Span");
                 break;
             }
         }
@@ -52,7 +53,7 @@ public class Spawner : MonoBehaviour
             }
 
             yield return new WaitForSeconds(Random.Range(randomDelay.x, randomDelay.y));
-            Debug.Log(randomDelay.x + randomDelay.y);
+           // Debug.Log(Time.realtimeSinceStartup);
             SpawnObjectAtRandomPosition();
         }
     }

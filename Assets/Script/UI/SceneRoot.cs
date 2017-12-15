@@ -51,9 +51,9 @@ public class SceneRoot : MonoBehaviour
 				Destroy(SpawnerRoot.transform.GetChild(index).gameObject);
 			}
 
-			foreach (Spawner spawner in MiniSpawerRoot.GetComponents<Spawner>())
+			foreach (Spawner spawner in MiniSpawerRoot.GetComponentsInChildren<Spawner>())
 			{
-				spawner.randomDelay = new Vector2(5.5f - difficulty*0.1f,10* difficulty*0.2f);
+				spawner.randomDelay = new Vector2(10.0f - difficulty*0.5f,20- difficulty);
 			}
 		}
 		MobeRoot.SetActive(true);
