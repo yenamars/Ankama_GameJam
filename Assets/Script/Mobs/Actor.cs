@@ -89,6 +89,11 @@ public class Actor : MonoBehaviour,IDamageable
             MoneyManager.instance.SpawnMoney(score, transform.position);
         }
 
+        if (animator != null)
+        {
+            animator.SetTrigger("Death");
+        }
+
         if (disableOnDeath == true)
         {
             gameObject.SetActive(false);
@@ -98,6 +103,11 @@ public class Actor : MonoBehaviour,IDamageable
             GameObject.Destroy(gameObject); 
         }
 	}
+
+    public virtual void Activate()
+    {
+        
+    }
 
 	protected float m_stoppedTimer;
 	
