@@ -64,7 +64,7 @@ public class SceneRoot : MonoBehaviour
 				GameObject PrefadToInstanciate = TraderPrefab;
 				if (difficulty > 4)
 					PrefadToInstanciate = Random.value > 0.5f ? ShooterPrefab : TraderPrefab;
-				if (difficulty > 8 && i == 0)
+				if (difficulty > 7 && i == 0)
 					PrefadToInstanciate = DonaldPrefab;
 				Instantiate(PrefadToInstanciate, MobeRoot.transform).transform.position = spawnPos;
 				
@@ -76,7 +76,7 @@ public class SceneRoot : MonoBehaviour
 				spawner.MobRoot = MobeRoot.transform;
 
                 difficulty = Mathf.Min(difficulty, 9);
-				spawner.randomDelay = new Vector2(5.0f - difficulty*0.5f, 20 - difficulty * 2.0f);
+				spawner.randomDelay = new Vector2(8.0f - difficulty*0.5f, 24 - difficulty * 2.0f);
                 spawner.StartSpawn();
 			}
 		}
