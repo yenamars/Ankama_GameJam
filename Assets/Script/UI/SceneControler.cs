@@ -42,6 +42,7 @@ public class SceneControler : MonoBehaviour
 	{
 		//m_ChangerPanel.LoaderPanel.SetTrigger("Slide");
 		m_ChangerPanel.FaderText.text = "FLOOR " + (50- m_finshedLevelCount).ToString();
+		m_ChangerPanel.GameOver.color = new Color(1,1,1,0);
 		TweenAlpha.AddTween(m_ChangerPanel.Fader, 0, 1, 0.3f);
 		yield return new WaitForSeconds(00.3f);
 		SceneManager.LoadScene("s02",LoadSceneMode.Additive);
@@ -71,10 +72,11 @@ public class SceneControler : MonoBehaviour
 	private IEnumerator LoadNextSceneCoroutine()
 	{
 		
-		Player.SetAlive(false);
+		yield return new WaitForSeconds(01.0f);
 		m_finshedLevelCount++;
 		m_ChangerPanel.FaderText.text = "FLOOR " + (50- m_finshedLevelCount).ToString();
 		yield return new WaitForSeconds(01.0f);
+		Player.SetAlive(false);
 		//m_ChangerPanel.LoaderPanel.SetTrigger("Slide");
 		TweenAlpha.AddTween(m_ChangerPanel.Fader, 0, 1, 0.3f);
 		yield return new WaitForSeconds(1.0f);
@@ -118,10 +120,12 @@ public class SceneControler : MonoBehaviour
 
 	private IEnumerator ReloadRoutine()
 	{
+		
+		TweenAlpha.AddTween(m_ChangerPanel.GameOver.gameObject, 0, 1, 0.3f);
+		TweenAlpha.AddTween(m_ChangerPanel.Fader, 0, 1, 0.3f);
 		yield return new WaitForSeconds(02.0f);
 		//m_ChangerPanel.LoaderPanel.SetTrigger("Slide");
-		TweenAlpha.AddTween(m_ChangerPanel.Fader, 0, 1, 0.3f);
-		yield return new WaitForSeconds(0.3f);
+		//yield return new WaitForSeconds(0.3f);
 		
 		SceneManager.LoadScene("Openning");
 	}
