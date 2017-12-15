@@ -20,7 +20,6 @@ public class BaseTrap : MonoBehaviour, IDamageable
     public virtual void Awake()
     {
         m_renderer = GetComponentInChildren<SpriteRenderer>();
-        m_mobRoot = GameObject.FindGameObjectWithTag("MobRoot");
     }
 
     public void Update()
@@ -40,7 +39,7 @@ public class BaseTrap : MonoBehaviour, IDamageable
     }
 
     protected virtual void ApplyEffect(TrapTarget trapped)
-    {
+    { 
         if (trapped != null)
         {
             trapped.Parent.Hit(power, Vector2.zero);
@@ -54,5 +53,4 @@ public class BaseTrap : MonoBehaviour, IDamageable
 
     private float m_activeTimer;
     private SpriteRenderer m_renderer;
-    protected GameObject m_mobRoot;
 }

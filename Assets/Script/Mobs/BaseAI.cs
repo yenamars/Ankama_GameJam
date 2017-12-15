@@ -51,5 +51,14 @@ public class BaseAI : Actor
         m_rigidbody.AddForce(pushForce, ForceMode2D.Impulse);
     }
 
+	public void OnCollisionEnter2D(Collision2D collision)
+	{
+		PlayerMoveControler player = collision.collider.GetComponent<PlayerMoveControler>();
+		if (player != null)
+		{
+			player.Hit(1,Vector2.zero);
+		}
+	}
+	
 	private GameObject m_target;
 }

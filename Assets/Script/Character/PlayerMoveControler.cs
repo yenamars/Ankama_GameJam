@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMoveControler : Actor
 {
@@ -13,6 +14,11 @@ public class PlayerMoveControler : Actor
 	[HideInInspector] public Vector3 Orientation;
     private bool isAlive;
 
+	
+	public LayerMask Mask;
+
+	[Header("ui")] public Image LifeGauge;
+	
 	public override void Awake()
 	{
 		SetWeapon(Defaultweapon);
@@ -77,6 +83,24 @@ public class PlayerMoveControler : Actor
 		weapon.transform.localRotation = Quaternion.identity;
 	}
 
+	public override void Hit(int damages, Vector2 pushForce)
+	{
+		
+		animator.SetTrigger("Hit");
+		Collider2D[] colls = Physics2D.OverlapCircleAll(transform.position, 2, Mask, -1.0f, 1.0f);
+		for (int i = 0; i < colls.Length; i++)
+		{
+			IDamageable d = colls[i].GetComponent<IDamageable>();
+			if (d != null)
+			{
+				Vector3 p = colls[i].transform.position;
+				d.Hit(0, -(transform.position - colls[i].transform.position )* 10);
+			}
+		}
+		base.Hit(damages,pushForce);
+		LifeGauge.fillAmount = (float)(m_lifePoint) / LifePoint;
+	}
+	
     public override void OnDeath()
     {
         if (destroyFX != null)
