@@ -9,14 +9,19 @@ public class SceneRoot : MonoBehaviour
 	public GameObject MobeRoot;
 	public LevelState State;
 
-	[Header("Test")] public bool AutoStart;
 
-
+	public void Start()
+	{
+		if (SceneControler.Instance == null)
+			AutoStar();
+	}
+	
 	public void AutoStar()
 	{
 		
 		SceneManager.LoadScene("Common", LoadSceneMode.Additive);
-		AutoStart = false;
+		GameObject.Instantiate(Resources.Load<PlayerMoveControler>("Player")).SetAlive(true);
+		StartScene();
 	}
 	
 	public void StartScene()
@@ -27,10 +32,6 @@ public class SceneRoot : MonoBehaviour
 
 	public void Update()
 	{
-		if (AutoStart)
-		{
-			AutoStar();
-		}
 		if (MobeRoot.GetComponentsInChildren<BaseAI>().Length == 0 && State == LevelState.Play) 
 		{
 			State = LevelState.Outro;
