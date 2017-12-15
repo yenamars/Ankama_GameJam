@@ -301,38 +301,19 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 114739570034237728, guid: a73521055c5404e958cdd5955f22dffe,
-        type: 2}
-      propertyPath: maxSpeed
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 114739570034237728, guid: a73521055c5404e958cdd5955f22dffe,
-        type: 2}
-      propertyPath: Speed
-      value: 1.5
-      objectReference: {fileID: 0}
     - target: {fileID: 1673293248190870, guid: a73521055c5404e958cdd5955f22dffe, type: 2}
       propertyPath: m_Name
       value: BaseTrader (3)
-      objectReference: {fileID: 0}
-    - target: {fileID: 1673293248190870, guid: a73521055c5404e958cdd5955f22dffe, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 212628114110442998, guid: a73521055c5404e958cdd5955f22dffe,
-        type: 2}
-      propertyPath: m_SortingOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114739570034237728, guid: a73521055c5404e958cdd5955f22dffe,
-        type: 2}
-      propertyPath: LifePoint
-      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 212606136618857378, guid: a73521055c5404e958cdd5955f22dffe,
         type: 2}
       propertyPath: m_SortingOrder
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 212628114110442998, guid: a73521055c5404e958cdd5955f22dffe,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a73521055c5404e958cdd5955f22dffe, type: 2}
@@ -728,7 +709,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4046465690634902, guid: f500f6bcc33d04176af1e851cd8259c6, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 212628114110442998, guid: f500f6bcc33d04176af1e851cd8259c6,
         type: 2}
@@ -783,7 +764,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4046465690634902, guid: f500f6bcc33d04176af1e851cd8259c6, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 212628114110442998, guid: f500f6bcc33d04176af1e851cd8259c6,
         type: 2}
@@ -2861,38 +2842,19 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114739570034237728, guid: a73521055c5404e958cdd5955f22dffe,
-        type: 2}
-      propertyPath: maxSpeed
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 114739570034237728, guid: a73521055c5404e958cdd5955f22dffe,
-        type: 2}
-      propertyPath: Speed
-      value: 1.5
-      objectReference: {fileID: 0}
     - target: {fileID: 1673293248190870, guid: a73521055c5404e958cdd5955f22dffe, type: 2}
       propertyPath: m_Name
       value: BaseTrader (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 1673293248190870, guid: a73521055c5404e958cdd5955f22dffe, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 212628114110442998, guid: a73521055c5404e958cdd5955f22dffe,
-        type: 2}
-      propertyPath: m_SortingOrder
-      value: 58
-      objectReference: {fileID: 0}
-    - target: {fileID: 114739570034237728, guid: a73521055c5404e958cdd5955f22dffe,
-        type: 2}
-      propertyPath: LifePoint
-      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 212606136618857378, guid: a73521055c5404e958cdd5955f22dffe,
         type: 2}
       propertyPath: m_SortingOrder
       value: 62
+      objectReference: {fileID: 0}
+    - target: {fileID: 212628114110442998, guid: a73521055c5404e958cdd5955f22dffe,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: 58
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a73521055c5404e958cdd5955f22dffe, type: 2}
@@ -2974,7 +2936,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4046465690634902, guid: f500f6bcc33d04176af1e851cd8259c6, type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 212628114110442998, guid: f500f6bcc33d04176af1e851cd8259c6,
         type: 2}
@@ -3365,6 +3327,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54504245fc7d143c68eeb28d7bd3ad1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  difficulty: 5
   MobeRoot: {fileID: 1737165859}
   State: 0
   PlayerSpawn: {fileID: 1955366277}
@@ -3918,34 +3881,15 @@ Prefab:
       propertyPath: m_Name
       value: BaseTrader (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 212628114110442998, guid: a73521055c5404e958cdd5955f22dffe,
-        type: 2}
-      propertyPath: m_SortingOrder
-      value: 46
-      objectReference: {fileID: 0}
-    - target: {fileID: 1673293248190870, guid: a73521055c5404e958cdd5955f22dffe, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114739570034237728, guid: a73521055c5404e958cdd5955f22dffe,
-        type: 2}
-      propertyPath: Speed
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114739570034237728, guid: a73521055c5404e958cdd5955f22dffe,
-        type: 2}
-      propertyPath: LifePoint
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 50559446176858754, guid: a73521055c5404e958cdd5955f22dffe,
-        type: 2}
-      propertyPath: m_Mass
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 212606136618857378, guid: a73521055c5404e958cdd5955f22dffe,
         type: 2}
       propertyPath: m_SortingOrder
       value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 212628114110442998, guid: a73521055c5404e958cdd5955f22dffe,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: 46
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a73521055c5404e958cdd5955f22dffe, type: 2}
