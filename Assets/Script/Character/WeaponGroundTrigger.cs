@@ -18,7 +18,14 @@ public class WeaponGroundTrigger : MonoBehaviour
             
         if (weaponToGrab.id == player.weapon.id)
         {
-            weaponToGrab = Weapons[(i + 1) % Weapons.Length];
+            if (i == Weapons.Length - 1)
+            {
+                weaponToGrab = Weapons[(i - 1)];
+            }
+            else
+            {
+                weaponToGrab = Weapons[(i + 1)];
+            }
         }
 
         player.SetWeapon(weaponToGrab);
