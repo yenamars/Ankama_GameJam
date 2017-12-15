@@ -81,9 +81,9 @@ public class SceneControler : MonoBehaviour
 		string sceneName = "s" + string.Format("{0:D2}", m_currentSceneID);
 		SceneManager.UnloadSceneAsync(sceneName);
 		m_currentSceneID = m_currentSceneID + 1;
-		if (m_currentSceneID > 5)
+		if (m_currentSceneID > 7)
 			m_currentSceneID = 4;
-		m_currentDifficulty = Mathf.Clamp(m_currentDifficulty + 1, 0, 10);
+		m_currentDifficulty = m_currentDifficulty + 1;
 		sceneName = "s" + string.Format("{0:D2}", m_currentSceneID);
 		SceneManager.LoadScene(sceneName,LoadSceneMode.Additive);
 		//SceneManager.UnloadSceneAsync("Splash");

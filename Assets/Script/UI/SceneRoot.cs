@@ -6,8 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneRoot : MonoBehaviour
 {
-
-
+    public int difficulty = 5;
 	public GameObject MobeRoot;
 	public LevelState State;
 	public Transform PlayerSpawn;
@@ -39,29 +38,41 @@ public class SceneRoot : MonoBehaviour
 		PlayerMoveControler player = GameObject.Instantiate(Resources.Load<PlayerMoveControler>("Player"));
 		player.SetAlive(true);
 		player.transform.position = PlayerSpawn.transform.position;
-		StartScene(10);
+        StartScene(difficulty);
 	}
 	
 	public void StartScene(int difficulty)
 	{
 		if (Type == LevelType.Random)
 		{
+            List<Vector3> allSpawnPos = new List<Vector3>();
+            for (int i = 0; i < SpawnerRoot.transform.childCount; i++)
+            {
+                allSpawnPos.Add(SpawnerRoot.transform.GetChild(i).position);
+            }
 			for (int i = 0; i < difficulty; i++)
 			{
-				int index = (int) (SpawnerRoot.transform.childCount * Random.value);
-				Transform spawnPos = SpawnerRoot.transform.GetChild(index);
+                int index = (int) (allSpawnPos.Count * Random.value);
+                Debug.Log(index);
+                if (allSpawnPos.Count == 0)
+                    break;
+                
+                Vector3 spawnPos = allSpawnPos[index];
 				GameObject PrefadToInstanciate = TraderPrefab;
 				if (difficulty > 5)
 					PrefadToInstanciate = Random.value > 0.5f ? ShooterPrefab : TraderPrefab;
-				Instantiate(PrefadToInstanciate, MobeRoot.transform).transform.position = spawnPos.position;
+				Instantiate(PrefadToInstanciate, MobeRoot.transform).transform.position = spawnPos;
 				
-				Destroy(SpawnerRoot.transform.GetChild(index).gameObject);
+                allSpawnPos.RemoveAt(index);
 			}
 
 			foreach (Spawner spawner in MiniSpawerRoot.GetComponentsInChildren<Spawner>())
 			{
 				spawner.MobRoot = MobeRoot.transform;
-				spawner.randomDelay = new Vector2(10.0f - difficulty*0.5f,20- difficulty);
+
+                difficulty = Mathf.Min(difficulty, 18);
+				spawner.randomDelay = new Vector2(10.0f - difficulty*0.5f, 20 - difficulty);
+                spawner.StartSpawn();
 			}
 		}
 		MobeRoot.SetActive(true);

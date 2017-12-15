@@ -25,8 +25,6 @@ public class Spawner : MonoBehaviour
             pool[i] = Instantiate(objectsToSpawn, trsf);
             pool[i].SetActive(false);
         }
-
-        StartCoroutine(SpawnCoroutine());
 	}
 
     void SpawnObjectAtRandomPosition()
@@ -44,6 +42,11 @@ public class Spawner : MonoBehaviour
                 break;
             }
         }
+    }
+
+    public void StartSpawn()
+    {
+        StartCoroutine(SpawnCoroutine());
     }
 
     IEnumerator SpawnCoroutine()
