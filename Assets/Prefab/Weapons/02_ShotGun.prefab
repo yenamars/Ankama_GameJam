@@ -40,6 +40,7 @@ GameObject:
   - component: {fileID: 199301442776226906}
   - component: {fileID: 114221849342768248}
   - component: {fileID: 82700930505942484}
+  - component: {fileID: 82079993067862650}
   m_Layer: 0
   m_Name: GunParticle
   m_TagString: Untagged
@@ -226,7 +227,7 @@ GameObject:
   - component: {fileID: 212821579220081248}
   - component: {fileID: 114046072868584672}
   m_Layer: 8
-  m_Name: Gun_02
+  m_Name: 02_ShotGun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -365,7 +366,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1267251008832318}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0.5, z: -0}
+  m_LocalPosition: {x: 0.1, y: 0.5, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4080665990117182}
@@ -413,6 +414,87 @@ Transform:
   m_Father: {fileID: 4138436621590348}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &82079993067862650
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1182833217471162}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 243321220197644368, guid: 2be76c61441f0bd4cbffa6997d45a050,
+    type: 2}
+  m_audioClip: {fileID: 8300000, guid: 1b793e849246db54c9c982c2f7468943, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!82 &82700930505942484
 AudioSource:
   m_ObjectHideFlags: 1
@@ -511,6 +593,7 @@ MonoBehaviour:
   bulletsPerShot: 10
   shootRateBase: 0.5
   delayBetweenCannons: 0
+  id: 1
   shooting: 0
   shakeData: {fileID: 11400000, guid: 53287012416fe4a4193741476401c496, type: 2}
 --- !u!114 &114221849342768248
@@ -524,7 +607,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47b8d4cc2aee8bc4ebede5e68017ec62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damages: 1
+  damages: 2
   damagesMask:
     serializedVersion: 2
     m_Bits: 8704
@@ -535,6 +618,8 @@ MonoBehaviour:
   bloodFX: {fileID: 4138436621590348}
   shootSound: {fileID: 82700930505942484}
   shootSoundRandomPitch: {x: 0.9, y: 1.1}
+  viandeSound: {fileID: 82079993067862650}
+  viandeSoundRandomPitch: {x: 0.9, y: 1.1}
 --- !u!198 &198026261910820412
 ParticleSystem:
   m_ObjectHideFlags: 1

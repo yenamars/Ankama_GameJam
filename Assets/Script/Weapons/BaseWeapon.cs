@@ -9,6 +9,7 @@ public class BaseWeapon : MonoBehaviour
     [SerializeField] protected int bulletsPerShot;
     [SerializeField] protected float shootRateBase;
     [SerializeField] protected float delayBetweenCannons;
+    public int id;
 
     [HideInInspector] public bool shooting;
     protected float timer;

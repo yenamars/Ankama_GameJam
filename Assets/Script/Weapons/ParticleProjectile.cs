@@ -13,6 +13,8 @@ public class ParticleProjectile : MonoBehaviour
     [SerializeField] private Transform bloodFX;
     [SerializeField] protected AudioSource shootSound;
     [SerializeField] protected Vector2 shootSoundRandomPitch;
+    [SerializeField] protected AudioSource viandeSound;
+    [SerializeField] protected Vector2 viandeSoundRandomPitch;
     private List<ParticleCollisionEvent> collisionEvents = new List<ParticleCollisionEvent>();
 
     private Transform trsf;
@@ -74,6 +76,12 @@ public class ParticleProjectile : MonoBehaviour
                         for (int j = 0; j < bloodFXs.Length; j++)
                         {
                             bloodFXs[j].Play(false);
+                        }
+
+                        if (viandeSound != null)
+                        {
+                            viandeSound.pitch = Random.Range(viandeSoundRandomPitch.x, viandeSoundRandomPitch.y);
+                            viandeSound.Play();
                         }
                     }
                 }
