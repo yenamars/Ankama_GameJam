@@ -15,7 +15,7 @@ public class BaseAI : Actor
 
 	[HideInInspector] public bool IsDead = false;
 	
-	public void Awake()
+	public virtual void Awake()
 	{
 		m_target = GameObject.FindGameObjectWithTag("Player");
         coll = GetComponent<Collider2D>();

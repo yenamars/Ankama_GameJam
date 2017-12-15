@@ -25,9 +25,15 @@ public class ParticleProjectile : MonoBehaviour
     void Awake()
     {
         trsf = transform;
-        flameFXs = flameFX.gameObject.GetComponentsInChildren<ParticleSystem>();
-        impactFXs = impactFX.gameObject.GetComponentsInChildren<ParticleSystem>();
-        bloodFXs = bloodFX.gameObject.GetComponentsInChildren<ParticleSystem>();
+
+        if(flameFX != null)
+            flameFXs = flameFX.gameObject.GetComponentsInChildren<ParticleSystem>();
+
+        if(impactFX != null)
+            impactFXs = impactFX.gameObject.GetComponentsInChildren<ParticleSystem>();
+
+        if(bloodFX != null)
+            bloodFXs = bloodFX.gameObject.GetComponentsInChildren<ParticleSystem>();
     }
 
     public void Shoot(int count, Transform cannon)
@@ -36,9 +42,12 @@ public class ParticleProjectile : MonoBehaviour
         trsf.rotation = cannon.rotation;
         pSystem.Emit(count);
 
-        for (int i = 0; i < flameFXs.Length; i++)
+        if (flameFX != null)
         {
-            flameFXs[i].Play(false);
+            for (int i = 0; i < flameFXs.Length; i++)
+            {
+                flameFXs[i].Play(false);
+            }
         }
 
         if (shootSound != null)
@@ -54,6 +63,9 @@ public class ParticleProjectile : MonoBehaviour
 
         for (int i = 0; i < collisionsCount; i++)
         {
+            if (impactFX == null)
+                break;
+            
             impactFX.position = collisionEvents[i].intersection;
             for (int j = 0; j < impactFXs.Length; j++)
             {
@@ -72,10 +84,13 @@ public class ParticleProjectile : MonoBehaviour
 
                     if (other.layer == 9)
                     {
-                        bloodFX.position = collisionEvents[i].intersection;
-                        for (int j = 0; j < bloodFXs.Length; j++)
+                        if (bloodFX != null)
                         {
-                            bloodFXs[j].Play(false);
+                            bloodFX.position = collisionEvents[i].intersection;
+                            for (int j = 0; j < bloodFXs.Length; j++)
+                            {
+                                bloodFXs[j].Play(false);
+                            }
                         }
 
                         if (viandeSound != null)
