@@ -30,9 +30,10 @@ public class BaseAI : Actor
 
 	public void Update()
 	{
-        if (isActive == false)
+        if (isActive == false || isAlive == false)
             return;
-        
+
+        Debug.Log("update");
 		base.Update();
 		Direction = m_target.transform.position - transform.position;
 		//m_rigidbody.velocity = Direction*Speed;
@@ -103,7 +104,9 @@ public class BaseAI : Actor
         isAlive = false;
         coll.enabled = false;
 
-        m_rigidbody.velocity = new Vector2(0.0f, 0.0f);
+        Vector2 vector20 = new Vector2(0.0f, 0.0f);
+        m_rigidbody.velocity = vector20;
+        WaitForFixedUpdate wait = new WaitForFixedUpdate();
 
         if (destroyFX != null)
         {
@@ -125,10 +128,11 @@ public class BaseAI : Actor
         {
             animator.SetTrigger("Death");
         }
-
+            
         while (finishDeath == false)
         {
-            yield return null;
+            yield return wait;
+            m_rigidbody.velocity = vector20;
         }
 
         if (disableOnDeath == true)
