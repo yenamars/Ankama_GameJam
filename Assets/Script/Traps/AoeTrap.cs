@@ -16,6 +16,22 @@ public class AoeTrap : BaseTrap
 
 	protected override void ApplyEffect(TrapTarget trapped)
 	{
+	    
+	    StartCoroutine(Burst());
+        
+
+//		foreach (Actor actor in m_mobRoot.GetComponentsInChildren<Actor>())
+//		{
+//			Vector3 distanceToTrap = actor.transform.position - transform.position;
+//			distanceToTrap.z = 0;
+//            if(distanceToTrap.sqrMagnitude < range*range)
+//				actor.Hit(power,Vector2.zero);
+//		}
+	}
+
+    private IEnumerator Burst()
+    {
+        yield return new WaitForSeconds(0.2f);
         Instantiate(trapFX, transform);
         StackableShake.instance.Shake(trapShake);
 
@@ -30,16 +46,8 @@ public class AoeTrap : BaseTrap
                 d.Hit(power, new Vector2(0.0f, 0.0f));
             }
         }
+    }
 
-//		foreach (Actor actor in m_mobRoot.GetComponentsInChildren<Actor>())
-//		{
-//			Vector3 distanceToTrap = actor.transform.position - transform.position;
-//			distanceToTrap.z = 0;
-//            if(distanceToTrap.sqrMagnitude < range*range)
-//				actor.Hit(power,Vector2.zero);
-//		}
-	}
-        
     public override void Hit(int damages, Vector2 pushForce)
     {
         ApplyEffect(null);

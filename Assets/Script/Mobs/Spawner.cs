@@ -8,7 +8,7 @@ public class Spawner : MonoBehaviour
     [SerializeField] private GameObject objectsToSpawn;
     [SerializeField] private int poolSize;
     [SerializeField] private float spawnRange;
-    [SerializeField] private Vector2 randomDelay;
+    [SerializeField] public Vector2 randomDelay;
 
 
     private GameObject[] pool;

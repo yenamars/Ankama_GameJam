@@ -1,4 +1,5 @@
 ﻿
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -15,6 +16,8 @@ public class SceneRoot : MonoBehaviour
 
 	public GameObject TraderPrefab;
 	public GameObject SpawnerRoot;
+
+	public GameObject MiniSpawerRoot;
 
 	public void Awake()
 	{
@@ -45,6 +48,11 @@ public class SceneRoot : MonoBehaviour
 				Transform spawnPos = SpawnerRoot.transform.GetChild(index);
 				Instantiate(TraderPrefab, spawnPos.position, Quaternion.identity);
 				Destroy(SpawnerRoot.transform.GetChild(index).gameObject);
+			}
+
+			foreach (Spawner spawner in MiniSpawerRoot.GetComponents<Spawner>())
+			{
+				spawner.randomDelay = new Vector2(1.5f - difficulty*0.1f,3* difficulty*0.2f);
 			}
 		}
 		MobeRoot.SetActive(true);
