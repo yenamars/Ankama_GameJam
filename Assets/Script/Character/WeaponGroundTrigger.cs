@@ -13,7 +13,7 @@ public class WeaponGroundTrigger : MonoBehaviour
 	{
 		PlayerMoveControler player = collider.GetComponent<PlayerMoveControler>();
 
-        int i = Random.Range(0, Weapons.Length);
+        int i = Random.Range(0, Weapons.Length - 1);
         BaseWeapon weaponToGrab;
         weaponToGrab = Weapons[i];
             

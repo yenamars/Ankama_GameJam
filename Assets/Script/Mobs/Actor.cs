@@ -12,6 +12,7 @@ public class Actor : MonoBehaviour,IDamageable
     public bool flipWithSpeed;
 	public GameObject Arm;
     public Animator animator;
+    public int score;
 
 	public virtual void Awake()
 	{
@@ -80,6 +81,11 @@ public class Actor : MonoBehaviour,IDamageable
         if (destroyFX != null)
         {
             Instantiate(destroyFX, transform.position, new Quaternion(0.0f, 0.0f, 0.0f, 1.0f));
+        }
+
+        if (score > 0)
+        {
+            MoneyManager.instance.SpawnMoney(score, transform.position);
         }
 
 		GameObject.Destroy(gameObject);

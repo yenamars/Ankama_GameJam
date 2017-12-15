@@ -242,6 +242,7 @@ MonoBehaviour:
   flipWithSpeed: 1
   Arm: {fileID: 1799896649854038}
   animator: {fileID: 0}
+  score: 20
   maxSpeed: 30
 --- !u!212 &212628114110442998
 SpriteRenderer:

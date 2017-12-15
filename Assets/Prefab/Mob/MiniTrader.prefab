@@ -235,13 +235,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c087d97fae543445e819c4e8e8aaf9a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LifePoint: 10
+  LifePoint: 2
   destroyFX: {fileID: 1972150123058676, guid: 842877ad246f256439871bf409f5bb23, type: 2}
   Direction: {x: 0, y: 0, z: 0}
   Speed: 6
   flipWithSpeed: 1
   Arm: {fileID: 1799896649854038}
   animator: {fileID: 0}
+  score: 5
   maxSpeed: 60
 --- !u!212 &212628114110442998
 SpriteRenderer:

@@ -98,8 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41e17f06bd5684c91a782115d7cf7aeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WeaponToEquip: {fileID: 114046072868584672, guid: cd078e51504204452b8af33505b3700d,
-    type: 2}
+  Weapons: []
   soundToPlay:
     audioClip: {fileID: 0}
     volume: 0
@@ -115,8 +114,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41e17f06bd5684c91a782115d7cf7aeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WeaponToEquip: {fileID: 114046072868584672, guid: cd078e51504204452b8af33505b3700d,
-    type: 2}
+  Weapons:
+  - {fileID: 114046072868584672, guid: fabe6762f17581c4ca35cfa618a5762f, type: 2}
+  - {fileID: 114046072868584672, guid: cd078e51504204452b8af33505b3700d, type: 2}
+  - {fileID: 114046072868584672, guid: 48f0b20afb6573849a0ad861c8d88f7d, type: 2}
   soundToPlay:
     audioClip: {fileID: 8300000, guid: 7feb1ec4d2db5da4aae5fe4a1ccdc94c, type: 3}
     volume: 0.75
