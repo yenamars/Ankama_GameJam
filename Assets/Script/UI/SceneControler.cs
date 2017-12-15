@@ -40,15 +40,17 @@ public class SceneControler : MonoBehaviour
 
 	private IEnumerator SeekCoroutine()
 	{
-		m_ChangerPanel.LoaderPanel.SetTrigger("Slide");
+		//m_ChangerPanel.LoaderPanel.SetTrigger("Slide");
+		TweenAlpha.AddTween(m_ChangerPanel.Fader, 0, 1, 0.3f);
 		yield return new WaitForSeconds(00.3f);
 		SceneManager.LoadScene("s02",LoadSceneMode.Additive);
 		//SceneManager.UnloadSceneAsync("Splash");
 		Player.animator.SetTrigger("Out");
 		
 		Destroy(Splash);
-		yield return new WaitForSeconds(0.3f);
-		m_ChangerPanel.LoaderPanel.SetTrigger("SlideOut");
+		yield return new WaitForSeconds(1.0f);
+		//m_ChangerPanel.LoaderPanel.SetTrigger("SlideOut");
+		TweenAlpha.AddTween(m_ChangerPanel.Fader, 1, 0, 0.3f);
 		//GameObject.FindGameObjectWithTag("SceneRoot").GetComponent<Animator>().SetTrigger("Slide");
 		SceneRoot root = GameObject.FindGameObjectWithTag("SceneRoot").GetComponent<SceneRoot>();
 		yield return new WaitForSeconds(01.0f);
@@ -68,12 +70,14 @@ public class SceneControler : MonoBehaviour
 	private IEnumerator LoadNextSceneCoroutine()
 	{
 		yield return new WaitForSeconds(01.0f);
-		m_ChangerPanel.LoaderPanel.SetTrigger("Slide");
-		yield return new WaitForSeconds(00.3f);
+		//m_ChangerPanel.LoaderPanel.SetTrigger("Slide");
+		TweenAlpha.AddTween(m_ChangerPanel.Fader, 0, 1, 0.3f);
+		yield return new WaitForSeconds(1.0f);
 		string sceneName = "s" + string.Format("{0:D2}", m_currentSceneID);
 		SceneManager.UnloadSceneAsync(sceneName);
-		m_currentSceneID = Mathf.Clamp(m_currentSceneID + 1, 0, 4);
-		m_currentSceneID = m_currentSceneID>=4?(int)(4+Random.value*2):m_currentSceneID;
+		m_currentSceneID = m_currentSceneID + 1;
+		if (m_currentSceneID > 5)
+			m_currentSceneID = 4;
 		m_currentDifficulty = Mathf.Clamp(m_currentDifficulty + 1, 0, 10);
 		sceneName = "s" + string.Format("{0:D2}", m_currentSceneID);
 		SceneManager.LoadScene(sceneName,LoadSceneMode.Additive);
@@ -82,7 +86,10 @@ public class SceneControler : MonoBehaviour
 		
 		//Destroy(Splash);
 		yield return new WaitForSeconds(0.3f);
-		m_ChangerPanel.LoaderPanel.SetTrigger("SlideOut");
+		SceneRoot root = GameObject.FindGameObjectWithTag("SceneRoot").GetComponent<SceneRoot>();
+		Player.transform.position = root.PlayerSpawn.position;
+		//m_ChangerPanel.LoaderPanel.SetTrigger("SlideOut");
+		TweenAlpha.AddTween(m_ChangerPanel.Fader, 1, 0, 0.3f);
 		//GameObject.FindGameObjectWithTag("SceneRoot").GetComponent<Animator>().SetTrigger("Slide");
 		yield return new WaitForSeconds(01.0f);
 		
@@ -90,10 +97,25 @@ public class SceneControler : MonoBehaviour
 		yield return new WaitForSeconds(00.5f);
 		Player.SetAlive(true);
 		yield return new WaitForSeconds(00.5f);
-		GameObject.FindGameObjectWithTag("SceneRoot").GetComponent<SceneRoot>().StartScene(m_currentDifficulty);
+		root.StartScene(m_currentDifficulty);
 	}
 	
 	private SceneChanger m_ChangerPanel;
 	private int m_currentSceneID = 2;
 	private int m_currentDifficulty = 2;
+
+	public void Reload()
+	{
+		StartCoroutine(ReloadRoutine());
+	}
+
+	private IEnumerator ReloadRoutine()
+	{
+		yield return new WaitForSeconds(02.0f);
+		//m_ChangerPanel.LoaderPanel.SetTrigger("Slide");
+		TweenAlpha.AddTween(m_ChangerPanel.Fader, 0, 1, 0.3f);
+		yield return new WaitForSeconds(0.3f);
+		
+		SceneManager.LoadScene("Openning");
+	}
 }

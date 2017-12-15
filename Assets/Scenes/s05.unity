@@ -4011,7 +4011,7 @@ MonoBehaviour:
   MobeRoot: {fileID: 1737165859}
   State: 0
   PlayerSpawn: {fileID: 1955366277}
-  Type: 0
+  Type: 1
   TraderPrefab: {fileID: 1673293248190870, guid: a73521055c5404e958cdd5955f22dffe,
     type: 2}
   SpawnerRoot: {fileID: 265180160}

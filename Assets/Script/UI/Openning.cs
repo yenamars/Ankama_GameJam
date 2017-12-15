@@ -13,7 +13,8 @@ public class Openning : MonoBehaviour
 	public void Awake()
 	{
 		Naration.GetComponent<Image>().color = new Color(1,1,1,0);
-		TweenAlpha.AddTween(Naration, 1, 0, 0.3f);
+		Logo.GetComponent<Image>().color = new Color(1,1,1,1);
+		//TweenAlpha.AddTween(Naration, 1, 0, 0.3f);
 		FreezeTimer = 0.5f;
 		Swap = 2;
 	}

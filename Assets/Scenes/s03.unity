@@ -747,6 +747,10 @@ Prefab:
       propertyPath: m_Name
       value: MiniTrader (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1673293248190870, guid: f500f6bcc33d04176af1e851cd8259c6, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f500f6bcc33d04176af1e851cd8259c6, type: 2}
   m_IsPrefabParent: 0
@@ -865,6 +869,10 @@ Prefab:
     - target: {fileID: 212628114110442998, guid: f500f6bcc33d04176af1e851cd8259c6,
         type: 2}
       propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1673293248190870, guid: f500f6bcc33d04176af1e851cd8259c6, type: 2}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -3294,6 +3302,10 @@ Prefab:
       propertyPath: m_Name
       value: MiniTrader (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1673293248190870, guid: f500f6bcc33d04176af1e851cd8259c6, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f500f6bcc33d04176af1e851cd8259c6, type: 2}
   m_IsPrefabParent: 0
@@ -3877,6 +3889,10 @@ MonoBehaviour:
   MobeRoot: {fileID: 1737165859}
   State: 0
   PlayerSpawn: {fileID: 1955366277}
+  Type: 0
+  TraderPrefab: {fileID: 0}
+  SpawnerRoot: {fileID: 0}
+  MiniSpawerRoot: {fileID: 0}
 --- !u!4 &1808698548 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4961483641060900, guid: a90db93ec474c46f8aa1f5c8fbaf2b79,

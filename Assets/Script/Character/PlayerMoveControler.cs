@@ -139,7 +139,8 @@ public class PlayerMoveControler : Actor
             Instantiate(destroyFX, transform.position, new Quaternion(0.0f, 0.0f, 0.0f, 1.0f));
         }
 
-        isAlive = false;
+	    SceneControler.Instance.Reload();
+        SetAlive(false);
 
         weapon.StopShoot();
         Direction = Vector2.zero;

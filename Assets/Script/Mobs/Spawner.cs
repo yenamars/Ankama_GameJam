@@ -52,6 +52,7 @@ public class Spawner : MonoBehaviour
             }
 
             yield return new WaitForSeconds(Random.Range(randomDelay.x, randomDelay.y));
+            Debug.Log(randomDelay.x + randomDelay.y);
             SpawnObjectAtRandomPosition();
         }
     }

@@ -13,6 +13,8 @@ public class BaseAI : Actor
     private bool finishDeath;
     private Collider2D coll;
 
+	[HideInInspector] public bool IsDead = false;
+	
 	public void Awake()
 	{
 		m_target = GameObject.FindGameObjectWithTag("Player");
@@ -100,6 +102,7 @@ public class BaseAI : Actor
 
     IEnumerator DeathCoroutine()
     {
+	    IsDead = true;
         isActive = false;
         isAlive = false;
         coll.enabled = false;

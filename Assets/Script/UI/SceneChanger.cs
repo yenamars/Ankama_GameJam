@@ -5,5 +5,6 @@ using UnityEngine;
 public class SceneChanger : MonoBehaviour
 {
 
+    public GameObject Fader;
     public Animator LoaderPanel;
 }

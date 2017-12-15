@@ -46,13 +46,14 @@ public class SceneRoot : MonoBehaviour
 			{
 				int index = (int) (SpawnerRoot.transform.childCount * Random.value);
 				Transform spawnPos = SpawnerRoot.transform.GetChild(index);
-				Instantiate(TraderPrefab, spawnPos.position, Quaternion.identity);
+				Instantiate(TraderPrefab, MobeRoot.transform).transform.position = spawnPos.position;
+				
 				Destroy(SpawnerRoot.transform.GetChild(index).gameObject);
 			}
 
 			foreach (Spawner spawner in MiniSpawerRoot.GetComponents<Spawner>())
 			{
-				spawner.randomDelay = new Vector2(1.5f - difficulty*0.1f,3* difficulty*0.2f);
+				spawner.randomDelay = new Vector2(5.5f - difficulty*0.1f,10* difficulty*0.2f);
 			}
 		}
 		MobeRoot.SetActive(true);
@@ -61,7 +62,12 @@ public class SceneRoot : MonoBehaviour
 
 	public void Update()
 	{
-		if (MobeRoot.GetComponentsInChildren<BaseAI>().Length == 0 && State == LevelState.Play) 
+		int aliveCount = 0;
+		foreach (BaseAI ai in MobeRoot.GetComponentsInChildren<BaseAI>())
+		{
+			aliveCount += ai.IsDead ? 0 : 1;
+		}
+		if (aliveCount == 0 && State == LevelState.Play) 
 		{
 			State = LevelState.Outro;
 			OnSceneClear();
