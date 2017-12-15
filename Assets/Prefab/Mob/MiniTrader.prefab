@@ -240,6 +240,7 @@ MonoBehaviour:
   Direction: {x: 0, y: 0, z: 0}
   Speed: 6
   flipWithSpeed: 1
+  disableOnDeath: 1
   Arm: {fileID: 1799896649854038}
   animator: {fileID: 0}
   score: 5

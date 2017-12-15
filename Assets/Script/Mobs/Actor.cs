@@ -10,6 +10,7 @@ public class Actor : MonoBehaviour,IDamageable
 	[HideInInspector] public Vector3 Direction;
 	public float Speed;
     public bool flipWithSpeed;
+    public bool disableOnDeath;
 	public GameObject Arm;
     public Animator animator;
     public int score;
@@ -88,7 +89,14 @@ public class Actor : MonoBehaviour,IDamageable
             MoneyManager.instance.SpawnMoney(score, transform.position);
         }
 
-		GameObject.Destroy(gameObject);
+        if (disableOnDeath == true)
+        {
+            gameObject.SetActive(false);
+        }
+        else
+        {
+            GameObject.Destroy(gameObject); 
+        }
 	}
 
 	protected float m_stoppedTimer;
