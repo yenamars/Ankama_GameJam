@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,19 +19,34 @@ public class PlayerMoveControler : Actor
 	public LayerMask Mask;
 
 	[Header("ui")] public Image LifeGauge;
-	
+
+	public StackableShakeData ShakeData;
 	public override void Awake()
 	{
 		SetWeapon(Defaultweapon);
-        isAlive = true;
+        //isAlive = true;
+		m_colliders = GetComponentsInChildren<Collider2D>().ToList();
 		base.Awake();
+	}
+
+	public void SetAlive(bool alive)
+	{
+		if(m_colliders == null)
+			m_colliders = GetComponentsInChildren<Collider2D>().ToList();
+		foreach (Collider2D mCollider in m_colliders)
+		{
+			mCollider.enabled = alive;
+			
+		}
+		isAlive = alive;
 	}
 
 	public override void Update()
 	{
         if (isAlive == false)
             return;
-        
+        if(m_mainCamera == null)
+	        m_mainCamera = Camera.main;
 		base.Update();
 		Direction = new Vector3( Input.GetAxis("Horizontal"),Input.GetAxis("Vertical"),0);
 
@@ -72,7 +88,12 @@ public class PlayerMoveControler : Actor
             weapon.StopShoot();
         }
 	}
-        
+
+	public void HitGround()
+	{
+		StackableShake.instance.Shake(ShakeData);
+	}
+	
 	public void SetWeapon(BaseWeapon weaponToEquip)
 	{
 		if(GunRoot.transform.childCount > 0)
@@ -100,7 +121,7 @@ public class PlayerMoveControler : Actor
 			}
 		}
 		base.Hit(damages,pushForce);
-		LifeGauge.fillAmount = (float)(m_lifePoint) / LifePoint;
+		//LifeGauge.fillAmount = (float)(m_lifePoint) / LifePoint;
 		StartCoroutine(InvulnerableCoroutine());
 	}
 
@@ -126,4 +147,7 @@ public class PlayerMoveControler : Actor
 
         animator.SetTrigger("Death");
     }
+
+	private List<Collider2D> m_colliders;
 }
+

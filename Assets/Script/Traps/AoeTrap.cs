@@ -19,7 +19,7 @@ public class AoeTrap : BaseTrap
         Instantiate(trapFX, transform);
         StackableShake.instance.Shake(trapShake);
 
-        Collider2D[] colls = Physics2D.OverlapCircleAll(position, range, damagesLayer, -1.0f, 1.0f);
+        Collider2D[] colls = Physics2D.OverlapCircleAll(GetComponent<Rigidbody2D>().position, range, damagesLayer, -1.0f, 1.0f);
 
         for (int i = 0; i < colls.Length; i++)
         {
