@@ -11,6 +11,6 @@ public class MoneyUI : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-		MoneyCount.text = MoneyManager.instance.currentScore.ToString();
+		MoneyCount.text = (MoneyManager.instance.currentScore*1000).ToString();
 	}
 }

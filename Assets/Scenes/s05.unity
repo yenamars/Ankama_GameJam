@@ -462,6 +462,7 @@ Transform:
   - {fileID: 1406015897}
   - {fileID: 424757788}
   - {fileID: 1090512706}
+  - {fileID: 758810022}
   m_Father: {fileID: 1794548406}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -910,11 +911,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4961483641060900, guid: a90db93ec474c46f8aa1f5c8fbaf2b79, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 9.36
+      value: -4.35
       objectReference: {fileID: 0}
     - target: {fileID: 4961483641060900, guid: a90db93ec474c46f8aa1f5c8fbaf2b79, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 2.86
+      value: 4.04
       objectReference: {fileID: 0}
     - target: {fileID: 4961483641060900, guid: a90db93ec474c46f8aa1f5c8fbaf2b79, type: 2}
       propertyPath: m_LocalPosition.z
@@ -952,7 +953,7 @@ Prefab:
     - target: {fileID: 212497211428475294, guid: a90db93ec474c46f8aa1f5c8fbaf2b79,
         type: 2}
       propertyPath: m_SortingOrder
-      value: -28
+      value: -40
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a90db93ec474c46f8aa1f5c8fbaf2b79, type: 2}
@@ -1160,6 +1161,67 @@ Transform:
   m_Father: {fileID: 265180161}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &758810021
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 192516962}
+    m_Modifications:
+    - target: {fileID: 4961483641060900, guid: a90db93ec474c46f8aa1f5c8fbaf2b79, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 10.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 4961483641060900, guid: a90db93ec474c46f8aa1f5c8fbaf2b79, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 4961483641060900, guid: a90db93ec474c46f8aa1f5c8fbaf2b79, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4961483641060900, guid: a90db93ec474c46f8aa1f5c8fbaf2b79, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4961483641060900, guid: a90db93ec474c46f8aa1f5c8fbaf2b79, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4961483641060900, guid: a90db93ec474c46f8aa1f5c8fbaf2b79, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4961483641060900, guid: a90db93ec474c46f8aa1f5c8fbaf2b79, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4961483641060900, guid: a90db93ec474c46f8aa1f5c8fbaf2b79, type: 2}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 114445629723568204, guid: a90db93ec474c46f8aa1f5c8fbaf2b79,
+        type: 2}
+      propertyPath: damagesLayer.m_Bits
+      value: 9984
+      objectReference: {fileID: 0}
+    - target: {fileID: 1886672925157672, guid: a90db93ec474c46f8aa1f5c8fbaf2b79, type: 2}
+      propertyPath: m_Name
+      value: BurstingBarrel (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 212497211428475294, guid: a90db93ec474c46f8aa1f5c8fbaf2b79,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: -4
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: a90db93ec474c46f8aa1f5c8fbaf2b79, type: 2}
+  m_IsPrefabParent: 0
+--- !u!4 &758810022 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4961483641060900, guid: a90db93ec474c46f8aa1f5c8fbaf2b79,
+    type: 2}
+  m_PrefabInternal: {fileID: 758810021}
 --- !u!1 &762341473
 GameObject:
   m_ObjectHideFlags: 0
@@ -2802,6 +2864,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54504245fc7d143c68eeb28d7bd3ad1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  difficulty: 5
   MobeRoot: {fileID: 1737165859}
   State: 0
   PlayerSpawn: {fileID: 1955366277}

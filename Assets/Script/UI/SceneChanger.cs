@@ -9,5 +9,5 @@ public class SceneChanger : MonoBehaviour
     public GameObject Fader;
     public Animator LoaderPanel;
     public Text FaderText;
-    public Image GameOver;
+    public GameObject GameOver;
 }

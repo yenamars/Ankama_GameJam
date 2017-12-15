@@ -42,7 +42,7 @@ public class SceneControler : MonoBehaviour
 	{
 		//m_ChangerPanel.LoaderPanel.SetTrigger("Slide");
 		m_ChangerPanel.FaderText.text = "FLOOR " + (50- m_finshedLevelCount).ToString();
-		m_ChangerPanel.GameOver.color = new Color(1,1,1,0);
+		m_ChangerPanel.GameOver.GetComponent<CanvasGroup>().alpha = 0;
 		TweenAlpha.AddTween(m_ChangerPanel.Fader, 0, 1, 0.3f);
 		yield return new WaitForSeconds(00.3f);
 		SceneManager.LoadScene("s02",LoadSceneMode.Additive);
