@@ -106,10 +106,11 @@ public class PlayerMoveControler : Actor
 
 	public override void Hit(int damages, Vector2 pushForce)
 	{
-		if(animator.GetBool("Hit"))
-			return;
-		
-		animator.SetBool("Hit",true);
+//		if(animator.GetBool("Hit"))
+//			return;		
+//		animator.SetBool("Hit",true);
+        animator.SetTrigger("HitTrigger");
+
 		Collider2D[] colls = Physics2D.OverlapCircleAll(transform.position, 2, Mask, -1.0f, 1.0f);
 		for (int i = 0; i < colls.Length; i++)
 		{
@@ -123,14 +124,14 @@ public class PlayerMoveControler : Actor
 		base.Hit(damages,pushForce);
 		if(LifeGauge != null)
 		LifeGauge.fillAmount = (float)(m_lifePoint) / LifePoint;
-		StartCoroutine(InvulnerableCoroutine());
+		//StartCoroutine(InvulnerableCoroutine());
 	}
 
-	private IEnumerator InvulnerableCoroutine()
-	{
-		yield return new WaitForSeconds(0.5f);
-		animator.SetBool("Hit",false);
-	}
+//	private IEnumerator InvulnerableCoroutine()
+//	{
+//		yield return new WaitForSeconds(10.0f);
+//		animator.SetBool("Hit",false);
+//	}
 
 	public override void OnDeath()
     {
