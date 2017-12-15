@@ -121,7 +121,8 @@ public class PlayerMoveControler : Actor
 			}
 		}
 		base.Hit(damages,pushForce);
-		//LifeGauge.fillAmount = (float)(m_lifePoint) / LifePoint;
+		if(LifeGauge != null)
+		LifeGauge.fillAmount = (float)(m_lifePoint) / LifePoint;
 		StartCoroutine(InvulnerableCoroutine());
 	}
 

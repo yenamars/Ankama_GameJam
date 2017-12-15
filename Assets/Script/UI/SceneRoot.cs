@@ -8,8 +8,19 @@ public class SceneRoot : MonoBehaviour
 
 	public GameObject MobeRoot;
 	public LevelState State;
+	public Transform PlayerSpawn;
+	[Header("Spawner")] 
+	
+	public LevelType  Type;
 
+	public GameObject TraderPrefab;
+	public GameObject SpawnerRoot;
 
+	public void Awake()
+	{
+		MobeRoot.SetActive(false);
+	}
+	
 	public void Start()
 	{
 		if (SceneControler.Instance == null)
@@ -21,11 +32,21 @@ public class SceneRoot : MonoBehaviour
 		
 		SceneManager.LoadScene("Common", LoadSceneMode.Additive);
 		GameObject.Instantiate(Resources.Load<PlayerMoveControler>("Player")).SetAlive(true);
-		StartScene();
+		StartScene(4);
 	}
 	
-	public void StartScene()
+	public void StartScene(int difficulty)
 	{
+		if (Type == LevelType.Random)
+		{
+			for (int i = 0; i < difficulty; i++)
+			{
+				int index = (int) (SpawnerRoot.transform.childCount * Random.value);
+				Transform spawnPos = SpawnerRoot.transform.GetChild(index);
+				Instantiate(TraderPrefab, spawnPos.position, Quaternion.identity);
+				Destroy(SpawnerRoot.transform.GetChild(index).gameObject);
+			}
+		}
 		MobeRoot.SetActive(true);
 		State = LevelState.Play;
 	}
@@ -44,6 +65,12 @@ public class SceneRoot : MonoBehaviour
 		SceneControler.Instance.LoadNextScene();
 	}
 
+}
+
+public enum LevelType
+{
+	Predef,
+	Random
 }
 
 public enum LevelState
