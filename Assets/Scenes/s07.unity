@@ -3517,8 +3517,8 @@ Transform:
   - {fileID: 271532690}
   - {fileID: 152462239}
   - {fileID: 1957235414}
-  - {fileID: 545871454}
   - {fileID: 2073856489}
+  - {fileID: 545871454}
   - {fileID: 1061510037}
   - {fileID: 206583895}
   - {fileID: 1622839910}
@@ -10837,6 +10837,8 @@ MonoBehaviour:
   TraderPrefab: {fileID: 1673293248190870, guid: a73521055c5404e958cdd5955f22dffe,
     type: 2}
   ShooterPrefab: {fileID: 1673293248190870, guid: 3b800eaa9b6aee446b418a64bda814d5,
+    type: 2}
+  DonaldPrefab: {fileID: 1673293248190870, guid: 1be79ad18c68b416ea7ea828b87f0e5b,
     type: 2}
   SpawnerRoot: {fileID: 265180160}
   MiniSpawerRoot: {fileID: 480951075}

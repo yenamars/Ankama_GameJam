@@ -20603,12 +20603,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54504245fc7d143c68eeb28d7bd3ad1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  difficulty: 5
   MobeRoot: {fileID: 1737165859}
   State: 0
   PlayerSpawn: {fileID: 1052956095}
   Type: 0
   TraderPrefab: {fileID: 0}
   ShooterPrefab: {fileID: 0}
+  DonaldPrefab: {fileID: 0}
   SpawnerRoot: {fileID: 0}
   MiniSpawerRoot: {fileID: 0}
 --- !u!4 &1385270345
@@ -22238,6 +22240,11 @@ Prefab:
     - target: {fileID: 4120963250162446, guid: f29143c5bc83f40a8af039cecdb74032, type: 2}
       propertyPath: m_RootOrder
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 212399539904648184, guid: f29143c5bc83f40a8af039cecdb74032,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: 32
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f29143c5bc83f40a8af039cecdb74032, type: 2}

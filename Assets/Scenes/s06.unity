@@ -4654,6 +4654,8 @@ MonoBehaviour:
     type: 2}
   ShooterPrefab: {fileID: 1673293248190870, guid: 3b800eaa9b6aee446b418a64bda814d5,
     type: 2}
+  DonaldPrefab: {fileID: 1673293248190870, guid: 1be79ad18c68b416ea7ea828b87f0e5b,
+    type: 2}
   SpawnerRoot: {fileID: 265180160}
   MiniSpawerRoot: {fileID: 480951075}
 --- !u!4 &1808698548 stripped

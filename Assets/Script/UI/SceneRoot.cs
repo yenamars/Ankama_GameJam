@@ -16,6 +16,7 @@ public class SceneRoot : MonoBehaviour
 
 	public GameObject TraderPrefab;
 	public GameObject ShooterPrefab;
+	public GameObject DonaldPrefab;
 	public GameObject SpawnerRoot;
 
 	public GameObject MiniSpawerRoot;
@@ -61,6 +62,8 @@ public class SceneRoot : MonoBehaviour
 				GameObject PrefadToInstanciate = TraderPrefab;
 				if (difficulty > 4)
 					PrefadToInstanciate = Random.value > 0.5f ? ShooterPrefab : TraderPrefab;
+				if (difficulty > 8 && i == 0)
+					PrefadToInstanciate = DonaldPrefab;
 				Instantiate(PrefadToInstanciate, MobeRoot.transform).transform.position = spawnPos;
 				
                 allSpawnPos.RemoveAt(index);
