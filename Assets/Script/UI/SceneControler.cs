@@ -12,6 +12,7 @@ public class SceneControler : MonoBehaviour
 
 	public static SceneControler Instance;
     private bool loading;
+    private bool click;
 
 	// Use this for initialization
 	void Awake ()
@@ -22,6 +23,8 @@ public class SceneControler : MonoBehaviour
 		SceneManager.LoadScene("Loader", LoadSceneMode.Additive);
 		SceneManager.LoadScene("Common", LoadSceneMode.Additive);
         loading = false;
+        click = false;
+        MoneyManager.instance.currentScore = 0;
 	}
 
 	public void Start()
@@ -33,7 +36,16 @@ public class SceneControler : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
     {
-        if (Input.GetMouseButtonDown(0) && loading == false)
+        if (Input.GetMouseButtonDown(0))
+        {
+            click = true;
+        }
+        else
+        {
+            click = false;
+        }
+
+        if (click == true && loading == false)
         {
             loading = true;
             Seek();
@@ -121,6 +133,7 @@ public class SceneControler : MonoBehaviour
 
 	public void Reload()
 	{
+        m_waitForRestart = true;
 		StartCoroutine(ReloadRoutine());
 	}
 
@@ -129,10 +142,12 @@ public class SceneControler : MonoBehaviour
 		
 		TweenAlpha.AddTween(m_ChangerPanel.GameOver.gameObject, 0, 1, 0.3f);
 		TweenAlpha.AddTween(m_ChangerPanel.Fader, 0, 1, 0.3f);
-		yield return new WaitForSeconds(02.0f);
-		//m_ChangerPanel.LoaderPanel.SetTrigger("Slide");
-		//yield return new WaitForSeconds(0.3f);
-		
+
+        while (click == false)
+        {
+            yield return null;
+        }
 		SceneManager.LoadScene("Openning");
 	}
+    private bool m_waitForRestart = false;
 }

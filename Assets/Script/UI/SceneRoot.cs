@@ -36,14 +36,16 @@ public class SceneRoot : MonoBehaviour
 	{
 		
 		SceneManager.LoadScene("Common", LoadSceneMode.Additive);
-		PlayerMoveControler player = GameObject.Instantiate(Resources.Load<PlayerMoveControler>("Player"));
+        player = GameObject.Instantiate(Resources.Load<PlayerMoveControler>("Player"));
 		player.SetAlive(true);
 		player.transform.position = PlayerSpawn.transform.position;
         StartScene(difficulty);
 	}
-	
+    private PlayerMoveControler player;
 	public void StartScene(int difficulty)
 	{
+        if (player == null)
+            player = SceneControler.Instance.Player;
 		if (Type == LevelType.Random)
 		{
             List<Vector3> allSpawnPos = new List<Vector3>();
@@ -88,6 +90,10 @@ public class SceneRoot : MonoBehaviour
 	{
 		if(State != LevelState.Play)
 			return;
+
+        if (player.IsAlive() == false)
+            return;
+        
 		int aliveCount = 0;
 		foreach (BaseAI ai in m_BaseMobs)
 		{

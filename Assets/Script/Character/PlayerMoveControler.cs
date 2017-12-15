@@ -100,7 +100,10 @@ public class PlayerMoveControler : Actor
 	{
 		StackableShake.instance.Shake(ShakeData);
 	}
-	
+    public bool IsAlive()
+    {
+        return isAlive;
+    }
 	public void SetWeapon(BaseWeapon weaponToEquip)
 	{
 		if(GunRoot.transform.childCount > 0)
