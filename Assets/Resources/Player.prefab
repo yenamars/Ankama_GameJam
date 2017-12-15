@@ -316,7 +316,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   LifeGauge: {fileID: 0}
-  ShakeData: {fileID: 0}
+  ShakeData: {fileID: 11400000, guid: 9627024900b1441b6811ebb07c36d263, type: 2}
 --- !u!212 &212315433310116802
 SpriteRenderer:
   m_ObjectHideFlags: 1
