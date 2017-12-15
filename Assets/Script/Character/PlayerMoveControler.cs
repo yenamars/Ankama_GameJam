@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using NUnit.Framework.Constraints;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -37,6 +38,13 @@ public class PlayerMoveControler : Actor
 		{
 			mCollider.enabled = alive;
 			
+		}
+		if (alive == false )
+		{
+			if(m_rigidbody != null)
+				m_rigidbody.velocity = Vector2.zero;
+			if(weapon !=null)
+				weapon.StopShoot();
 		}
 		isAlive = alive;
 	}
