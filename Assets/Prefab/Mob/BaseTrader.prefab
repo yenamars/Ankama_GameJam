@@ -604,7 +604,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c087d97fae543445e819c4e8e8aaf9a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LifePoint: 1
+  LifePoint: 200
   destroyFX: {fileID: 0}
   Direction: {x: 0, y: 0, z: 0}
   Speed: 3
