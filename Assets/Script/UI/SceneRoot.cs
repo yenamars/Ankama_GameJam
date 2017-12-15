@@ -1,5 +1,6 @@
 ﻿
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -53,16 +54,33 @@ public class SceneRoot : MonoBehaviour
 
 			foreach (Spawner spawner in MiniSpawerRoot.GetComponentsInChildren<Spawner>())
 			{
+				spawner.MobRoot = MobeRoot.transform;
 				spawner.randomDelay = new Vector2(10.0f - difficulty*0.5f,20- difficulty);
 			}
 		}
 		MobeRoot.SetActive(true);
+
+		m_BaseMobs = MobeRoot.GetComponentsInChildren<BaseAI>().ToList();
 		State = LevelState.Play;
 	}
 
 	public void Update()
 	{
+		if(State != LevelState.Play)
+			return;
 		int aliveCount = 0;
+		foreach (BaseAI ai in m_BaseMobs)
+		{
+			aliveCount+= ai.IsDead ? 0 : 1;
+		}
+		if (aliveCount == 0 && MiniSpawerRoot != null)
+		{
+			foreach (Spawner spawner in MiniSpawerRoot.GetComponentsInChildren<Spawner>())
+			{
+				spawner.Stop();
+			}
+		}
+		
 		foreach (BaseAI ai in MobeRoot.GetComponentsInChildren<BaseAI>())
 		{
 			aliveCount += ai.IsDead ? 0 : 1;
@@ -78,6 +96,8 @@ public class SceneRoot : MonoBehaviour
 	{
 		SceneControler.Instance.LoadNextScene();
 	}
+
+	private List<BaseAI> m_BaseMobs;
 
 }
 

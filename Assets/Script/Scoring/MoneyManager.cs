@@ -46,7 +46,7 @@ public class MoneyManager : MonoBehaviour
 	
 	void Update () 
     {
-        if(playerTransform == null)
+        if(playerTransform == null && GameObject.FindGameObjectWithTag("Player") != null)
             playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
         if(playerTransform == null)
             return;
