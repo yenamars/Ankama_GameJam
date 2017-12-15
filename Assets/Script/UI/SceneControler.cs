@@ -11,7 +11,8 @@ public class SceneControler : MonoBehaviour
 	public GameObject Splash;
 
 	public static SceneControler Instance;
-	
+    private bool loading;
+
 	// Use this for initialization
 	void Awake ()
 	{
@@ -20,6 +21,7 @@ public class SceneControler : MonoBehaviour
 		Player.SetAlive(false);
 		SceneManager.LoadScene("Loader", LoadSceneMode.Additive);
 		SceneManager.LoadScene("Common", LoadSceneMode.Additive);
+        loading = false;
 	}
 
 	public void Start()
@@ -28,14 +30,18 @@ public class SceneControler : MonoBehaviour
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		
+	void Update () 
+    {
+        if (Input.GetMouseButtonDown(0) && loading == false)
+        {
+            loading = true;
+            Seek();
+        }
 	}
 
 	public void Seek()
 	{
 		StartCoroutine(SeekCoroutine());
-		
 	}
 
 	private IEnumerator SeekCoroutine()

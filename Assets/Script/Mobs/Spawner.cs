@@ -53,14 +53,13 @@ public class Spawner : MonoBehaviour
     {
         while (true)
         {
+            SpawnObjectAtRandomPosition();
+
             yield return new WaitForSeconds(Random.Range(randomDelay.x, randomDelay.y));
             while (spawn == false)
             {
                 yield return null;
             }
-
-           // Debug.Log(Time.realtimeSinceStartup);
-            SpawnObjectAtRandomPosition();
         }
     }
 

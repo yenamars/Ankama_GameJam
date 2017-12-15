@@ -50,16 +50,16 @@ public class SceneRoot : MonoBehaviour
             {
                 allSpawnPos.Add(SpawnerRoot.transform.GetChild(i).position);
             }
-			for (int i = 0; i < difficulty; i++)
+			for (int i = 0; i < difficulty / 2; i++)
 			{
                 int index = (int) (allSpawnPos.Count * Random.value);
-                Debug.Log(index);
+
                 if (allSpawnPos.Count == 0)
                     break;
                 
                 Vector3 spawnPos = allSpawnPos[index];
 				GameObject PrefadToInstanciate = TraderPrefab;
-				if (difficulty > 5)
+				if (difficulty > 4)
 					PrefadToInstanciate = Random.value > 0.5f ? ShooterPrefab : TraderPrefab;
 				Instantiate(PrefadToInstanciate, MobeRoot.transform).transform.position = spawnPos;
 				
@@ -70,8 +70,8 @@ public class SceneRoot : MonoBehaviour
 			{
 				spawner.MobRoot = MobeRoot.transform;
 
-                difficulty = Mathf.Min(difficulty, 18);
-				spawner.randomDelay = new Vector2(10.0f - difficulty*0.5f, 20 - difficulty);
+                difficulty = Mathf.Min(difficulty, 9);
+				spawner.randomDelay = new Vector2(5.0f - difficulty*0.5f, 20 - difficulty * 2.0f);
                 spawner.StartSpawn();
 			}
 		}

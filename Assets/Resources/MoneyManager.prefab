@@ -136,8 +136,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delayBeforeAttract: 0.5
-  attractForce: 10
-  attractRange: 5
+  attractForce: 5
+  attractRange: 10
   grabRange: 1
   pSystem: {fileID: 198881701412194764}
   recupSound: {fileID: 82082537539331898}
@@ -3497,7 +3497,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 612905699
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 1
   m_RenderMode: 0
   m_SortMode: 0

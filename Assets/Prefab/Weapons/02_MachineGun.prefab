@@ -39,8 +39,8 @@ GameObject:
   - component: {fileID: 198214870554128614}
   - component: {fileID: 199301442776226906}
   - component: {fileID: 114221849342768248}
-  - component: {fileID: 82700930505942484}
-  - component: {fileID: 82079993067862650}
+  - component: {fileID: 82318211822101380}
+  - component: {fileID: 82796999980460200}
   m_Layer: 0
   m_Name: GunParticle
   m_TagString: Untagged
@@ -227,7 +227,7 @@ GameObject:
   - component: {fileID: 212821579220081248}
   - component: {fileID: 114046072868584672}
   m_Layer: 8
-  m_Name: 02_ShotGun
+  m_Name: 02_MachineGun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -337,7 +337,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1182833217471162}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 16.74, y: 0.5, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4040906813066864}
@@ -353,7 +353,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1407087493781854}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 4.23, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4138436621590348}
@@ -366,7 +366,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1267251008832318}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.1, y: 0.96, z: -0}
+  m_LocalPosition: {x: 0.02, y: 1.4, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4080665990117182}
@@ -414,7 +414,7 @@ Transform:
   m_Father: {fileID: 4138436621590348}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!82 &82079993067862650
+--- !u!82 &82318211822101380
 AudioSource:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -424,9 +424,9 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 243321220197644368, guid: 2be76c61441f0bd4cbffa6997d45a050,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: 1b793e849246db54c9c982c2f7468943, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 6c278d09213ba1f48955367d86ad1f55, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.8
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -495,7 +495,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!82 &82700930505942484
+--- !u!82 &82796999980460200
 AudioSource:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -505,9 +505,9 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 243321220197644368, guid: 2be76c61441f0bd4cbffa6997d45a050,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: 412859f305a016a4dac5ebf0904a9283, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 1b793e849246db54c9c982c2f7468943, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.8
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -590,10 +590,10 @@ MonoBehaviour:
   particleProjectile: {fileID: 114221849342768248}
   cannons:
   - {fileID: 4791333223342844}
-  bulletsPerShot: 10
-  shootRateBase: 0.5
+  bulletsPerShot: 1
+  shootRateBase: 0.05
   delayBetweenCannons: 0
-  id: 1
+  id: 0
   shooting: 0
   shakeData: {fileID: 11400000, guid: 53287012416fe4a4193741476401c496, type: 2}
 --- !u!114 &114221849342768248
@@ -611,14 +611,14 @@ MonoBehaviour:
   damagesMask:
     serializedVersion: 2
     m_Bits: 8704
-  pushForce: 3
+  pushForce: 2
   pSystem: {fileID: 198214870554128614}
   flameFX: {fileID: 198395907949722434}
   impactFX: {fileID: 4813219660649386}
   bloodFX: {fileID: 4138436621590348}
-  shootSound: {fileID: 82700930505942484}
+  shootSound: {fileID: 82318211822101380}
   shootSoundRandomPitch: {x: 0.9, y: 1.1}
-  viandeSound: {fileID: 82079993067862650}
+  viandeSound: {fileID: 82796999980460200}
   viandeSoundRandomPitch: {x: 0.9, y: 1.1}
 --- !u!198 &198026261910820412
 ParticleSystem:
@@ -680,7 +680,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 614119735
+  randomSeed: 1791307045
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -4045,7 +4045,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1844406202
+  randomSeed: 1101098789
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -10775,7 +10775,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1292474957
+  randomSeed: 597223297
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -11219,7 +11219,7 @@ ParticleSystem:
     serializedVersion: 5
     enabled: 1
     type: 4
-    angle: 29.23841
+    angle: 15
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 1
@@ -14092,7 +14092,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1845593280
+  randomSeed: 1413796343
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -17457,7 +17457,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1805285077
+  randomSeed: -711798164
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -20819,7 +20819,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 269166328
+  randomSeed: 1162723416
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -24184,7 +24184,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1111887592
+  randomSeed: -1476531222
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -27546,7 +27546,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 298913149
+  randomSeed: -1592942825
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -30908,7 +30908,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1917749181
+  randomSeed: 938764911
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -34270,7 +34270,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 641540268
+  randomSeed: -1054198171
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -38147,7 +38147,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1120493581
   m_SortingLayer: -1
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_RenderMode: 0
   m_SortMode: 0
   m_MinParticleSize: 0
@@ -38200,7 +38200,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: a28afc9223f91914baca0356dbedf9cf, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a6761343545c9684286249fc7e5a13b5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
