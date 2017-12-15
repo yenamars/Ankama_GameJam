@@ -41,6 +41,7 @@ public class SceneControler : MonoBehaviour
 	private IEnumerator SeekCoroutine()
 	{
 		//m_ChangerPanel.LoaderPanel.SetTrigger("Slide");
+		m_ChangerPanel.FaderText.text = "FLOOR " + (50- m_finshedLevelCount).ToString();
 		TweenAlpha.AddTween(m_ChangerPanel.Fader, 0, 1, 0.3f);
 		yield return new WaitForSeconds(00.3f);
 		SceneManager.LoadScene("s02",LoadSceneMode.Additive);
@@ -53,7 +54,7 @@ public class SceneControler : MonoBehaviour
 		TweenAlpha.AddTween(m_ChangerPanel.Fader, 1, 0, 0.3f);
 		//GameObject.FindGameObjectWithTag("SceneRoot").GetComponent<Animator>().SetTrigger("Slide");
 		SceneRoot root = GameObject.FindGameObjectWithTag("SceneRoot").GetComponent<SceneRoot>();
-		yield return new WaitForSeconds(01.0f);
+		yield return new WaitForSeconds(00.5f);
 		Player.transform.position = root.PlayerSpawn.position;
 		Player.animator.SetTrigger("Fall");
 		yield return new WaitForSeconds(00.5f);
@@ -69,6 +70,8 @@ public class SceneControler : MonoBehaviour
 
 	private IEnumerator LoadNextSceneCoroutine()
 	{
+		m_finshedLevelCount++;
+		m_ChangerPanel.FaderText.text = "FLOOR " + (50- m_finshedLevelCount).ToString();
 		yield return new WaitForSeconds(01.0f);
 		//m_ChangerPanel.LoaderPanel.SetTrigger("Slide");
 		TweenAlpha.AddTween(m_ChangerPanel.Fader, 0, 1, 0.3f);
@@ -91,7 +94,7 @@ public class SceneControler : MonoBehaviour
 		//m_ChangerPanel.LoaderPanel.SetTrigger("SlideOut");
 		TweenAlpha.AddTween(m_ChangerPanel.Fader, 1, 0, 0.3f);
 		//GameObject.FindGameObjectWithTag("SceneRoot").GetComponent<Animator>().SetTrigger("Slide");
-		yield return new WaitForSeconds(01.0f);
+		yield return new WaitForSeconds(00.5f);
 		
 		Player.animator.SetTrigger("Fall");
 		yield return new WaitForSeconds(00.5f);
@@ -103,6 +106,8 @@ public class SceneControler : MonoBehaviour
 	private SceneChanger m_ChangerPanel;
 	private int m_currentSceneID = 2;
 	private int m_currentDifficulty = 2;
+
+	private int m_finshedLevelCount = 0;
 
 	public void Reload()
 	{

@@ -57,7 +57,7 @@ MonoBehaviour:
     type: 2}
   poolSize: 100
   spawnRange: 1
-  randomDelay: {x: 0.5, y: 1}
+  randomDelay: {x: 5, y: 10}
 --- !u!212 &212723591583708158
 SpriteRenderer:
   m_ObjectHideFlags: 1

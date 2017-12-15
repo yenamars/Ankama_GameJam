@@ -46,6 +46,11 @@ public class MoneyManager : MonoBehaviour
 	
 	void Update () 
     {
+        if(playerTransform == null)
+            playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        if(playerTransform == null)
+            return;
+        
         recup = false;
         int numParticles = pSystem.GetParticles(particles);
 

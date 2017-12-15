@@ -591,7 +591,7 @@ MonoBehaviour:
   cannons:
   - {fileID: 4791333223342844}
   bulletsPerShot: 1
-  shootRateBase: 0.1
+  shootRateBase: 0.5
   delayBetweenCannons: 0
   id: 0
   shooting: 0
@@ -610,7 +610,7 @@ MonoBehaviour:
   damages: 2
   damagesMask:
     serializedVersion: 2
-    m_Bits: 8704
+    m_Bits: 256
   pushForce: 2
   pSystem: {fileID: 198214870554128614}
   flameFX: {fileID: 198395907949722434}
@@ -13224,7 +13224,7 @@ ParticleSystem:
     radiusScale: 0.5
     collidesWith:
       serializedVersion: 2
-      m_Bits: 8705
+      m_Bits: 257
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
