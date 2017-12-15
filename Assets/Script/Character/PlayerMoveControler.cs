@@ -140,7 +140,6 @@ public class PlayerMoveControler : Actor
             Instantiate(destroyFX, transform.position, new Quaternion(0.0f, 0.0f, 0.0f, 1.0f));
         }
 
-	    SceneControler.Instance.Reload();
         SetAlive(false);
 
         weapon.StopShoot();
@@ -149,6 +148,7 @@ public class PlayerMoveControler : Actor
         Arm.SetActive(false);
 
         animator.SetTrigger("Death");
+	    SceneControler.Instance.Reload();
     }
 
 	private List<Collider2D> m_colliders;

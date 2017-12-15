@@ -16,6 +16,7 @@ public class SceneRoot : MonoBehaviour
 	public LevelType  Type;
 
 	public GameObject TraderPrefab;
+	public GameObject ShooterPrefab;
 	public GameObject SpawnerRoot;
 
 	public GameObject MiniSpawerRoot;
@@ -35,8 +36,10 @@ public class SceneRoot : MonoBehaviour
 	{
 		
 		SceneManager.LoadScene("Common", LoadSceneMode.Additive);
-		GameObject.Instantiate(Resources.Load<PlayerMoveControler>("Player")).SetAlive(true);
-		StartScene(4);
+		PlayerMoveControler player = GameObject.Instantiate(Resources.Load<PlayerMoveControler>("Player"));
+		player.SetAlive(true);
+		player.transform.position = PlayerSpawn.transform.position;
+		StartScene(10);
 	}
 	
 	public void StartScene(int difficulty)
@@ -47,7 +50,10 @@ public class SceneRoot : MonoBehaviour
 			{
 				int index = (int) (SpawnerRoot.transform.childCount * Random.value);
 				Transform spawnPos = SpawnerRoot.transform.GetChild(index);
-				Instantiate(TraderPrefab, MobeRoot.transform).transform.position = spawnPos.position;
+				GameObject PrefadToInstanciate = TraderPrefab;
+				if (difficulty > 5)
+					PrefadToInstanciate = Random.value > 0.5f ? ShooterPrefab : TraderPrefab;
+				Instantiate(PrefadToInstanciate, MobeRoot.transform).transform.position = spawnPos.position;
 				
 				Destroy(SpawnerRoot.transform.GetChild(index).gameObject);
 			}
