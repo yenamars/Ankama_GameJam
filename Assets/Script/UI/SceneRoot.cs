@@ -24,6 +24,7 @@ public class SceneRoot : MonoBehaviour
 	public void Awake()
 	{
 		MobeRoot.SetActive(false);
+        spawners = GetComponentsInChildren<Spawner>();
 	}
 	
 	public void Start()
@@ -73,8 +74,6 @@ public class SceneRoot : MonoBehaviour
 
 			foreach (Spawner spawner in MiniSpawerRoot.GetComponentsInChildren<Spawner>())
 			{
-				spawner.MobRoot = MobeRoot.transform;
-
                 difficulty = Mathf.Min(difficulty, 9);
 				spawner.randomDelay = new Vector2(8.0f - difficulty*0.5f, 24 - difficulty * 2.0f);
                 spawner.StartSpawn();
@@ -97,21 +96,29 @@ public class SceneRoot : MonoBehaviour
 		int aliveCount = 0;
 		foreach (BaseAI ai in m_BaseMobs)
 		{
-			aliveCount+= ai.IsDead ? 0 : 1;
-		}
-		if (aliveCount == 0 && MiniSpawerRoot != null)
-		{
-			foreach (Spawner spawner in MiniSpawerRoot.GetComponentsInChildren<Spawner>())
-			{
-				spawner.Stop();
-			}
-		}
-		
-		foreach (BaseAI ai in MobeRoot.GetComponentsInChildren<BaseAI>())
-		{
 			aliveCount += ai.IsDead ? 0 : 1;
 		}
-		if (aliveCount == 0 && State == LevelState.Play) 
+            
+        bool spawnerMobsAreAlive = false;
+
+        if (aliveCount == 0 && MiniSpawerRoot != null)
+        {
+            for (int i = 0; i < spawners.Length; i++)
+            {
+                spawners[i].Stop();
+
+                if (spawners[i].aliveMobs > 0)
+                {
+                    spawnerMobsAreAlive = true;
+                }
+            }
+        }
+        else
+        {
+            spawnerMobsAreAlive = true;
+        }
+
+        if (spawnerMobsAreAlive == false && aliveCount == 0 && State == LevelState.Play) 
 		{
 			State = LevelState.Outro;
 			OnSceneClear();
@@ -124,7 +131,7 @@ public class SceneRoot : MonoBehaviour
 	}
 
 	private List<BaseAI> m_BaseMobs;
-
+    private Spawner[] spawners;
 }
 
 public enum LevelType

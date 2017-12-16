@@ -47,6 +47,9 @@ TagManager:
   - name: GroundTop
     uniqueID: 3384785693
     locked: 0
+  - name: TrapGround
+    uniqueID: 989673143
+    locked: 0
   - name: GroundFX
     uniqueID: 3174473715
     locked: 0

@@ -66,6 +66,7 @@ public class Actor : MonoBehaviour,IDamageable
 	public virtual void Hit(int damages, Vector2 pushForce)
 	{
 		m_lifePoint -= damages;
+
 		if (m_lifePoint <= 0)
 		{
 			OnDeath();

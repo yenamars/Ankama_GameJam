@@ -7,6 +7,7 @@ public class LifeGauge : MonoBehaviour
 {
 
 	public Image Gauge;
+
 	public void Awake()
 	{
 		GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMoveControler>().LifeGauge = Gauge;

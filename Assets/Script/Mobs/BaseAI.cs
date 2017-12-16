@@ -12,6 +12,7 @@ public class BaseAI : Actor
     protected bool isActive;
     private bool finishDeath;
     private Collider2D coll;
+    private Spawner spawner;
 
 	[HideInInspector] public bool IsDead = false;
 	
@@ -22,6 +23,11 @@ public class BaseAI : Actor
 		base.Awake();
 	}
 	
+    public void SetSpawner(Spawner s)
+    {
+        spawner = s;
+    }
+
     void OnEnable()
     {
         isAlive = true;
@@ -107,6 +113,11 @@ public class BaseAI : Actor
         isActive = false;
         isAlive = false;
         coll.enabled = false;
+
+        if (spawner != null)
+        {
+            spawner.mobIsDead(); 
+        }
 
         Vector2 vector20 = new Vector2(0.0f, 0.0f);
         m_rigidbody.velocity = vector20;

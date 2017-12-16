@@ -10,10 +10,10 @@ public class Spawner : MonoBehaviour
     [SerializeField] private float spawnRange;
     [SerializeField] public Vector2 randomDelay;
 
-    [HideInInspector] public Transform MobRoot;
-
     private GameObject[] pool;
     private Transform trsf;
+
+    [HideInInspector] public int aliveMobs;
 
 	void Awake () 
     {
@@ -34,13 +34,25 @@ public class Spawner : MonoBehaviour
             if (pool[i].activeSelf == false)
             {
                 Vector2 r = Random.insideUnitCircle * spawnRange;
-                pool[i].GetComponent<BaseAI>().IsDead = false;
-                pool[i].transform.parent = MobRoot;
+                BaseAI b = pool[i].GetComponent<BaseAI>();
+                b.IsDead = false;
+                b.SetSpawner(this);
                 pool[i].transform.position = trsf.position + new Vector3(r.x, r.y, 0.0f);
                 pool[i].SetActive(true);
-               // Debug.Log("Span");
+                aliveMobs += 1;
+
                 break;
             }
+        }
+    }
+
+    public void mobIsDead()
+    {
+        aliveMobs -= 1;
+
+        if (aliveMobs < 0)
+        {
+            Debug.LogWarning("There is a probleme with the spawner!!");
         }
     }
 

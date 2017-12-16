@@ -69,7 +69,11 @@ public class PlayerMoveControler : Actor
             animator.SetBool("Running", false); 
         }
 
-		Vector3 LookTarget = m_mainCamera.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 LookTarget = new Vector3(0.0f, 0.0f, 0.0f);
+
+        if(m_mainCamera != null)
+		    LookTarget = m_mainCamera.ScreenToWorldPoint(Input.mousePosition);
+        
 		LookTarget.z = transform.position.z;
 		Vector3 difPosition = LookTarget - transform.position;
 
@@ -120,9 +124,10 @@ public class PlayerMoveControler : Actor
 
 	public override void Hit(int damages, Vector2 pushForce)
 	{
-//		if(animator.GetBool("Hit"))
-//			return;		
-//		animator.SetBool("Hit",true);
+        base.Hit(damages, pushForce);
+
+        LifeGauge.fillAmount = (float)(m_lifePoint) / LifePoint;
+
         animator.SetTrigger("HitTrigger");
 
 		Collider2D[] colls = Physics2D.OverlapCircleAll(transform.position, 2, Mask, -1.0f, 1.0f);
@@ -135,10 +140,6 @@ public class PlayerMoveControler : Actor
 				d.Hit(0, -(transform.position - colls[i].transform.position )* 10);
 			}
 		}
-		base.Hit(damages,pushForce);
-		if(LifeGauge != null)
-		LifeGauge.fillAmount = (float)(m_lifePoint) / LifePoint;
-		//StartCoroutine(InvulnerableCoroutine());
 	}
 
 //	private IEnumerator InvulnerableCoroutine()
@@ -162,7 +163,9 @@ public class PlayerMoveControler : Actor
         Arm.SetActive(false);
 
         animator.SetTrigger("Death");
-	    SceneControler.Instance.Reload();
+
+        if(SceneControler.Instance != null)
+	        SceneControler.Instance.Reload();
     }
 
 	private List<Collider2D> m_colliders;

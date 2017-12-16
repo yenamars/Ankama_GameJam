@@ -366,7 +366,7 @@ Rigidbody2D:
   m_LinearDrag: 1
   m_AngularDrag: 0.05
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: c1c052bed90730f459e8fb59e5dd956b, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -547,6 +547,7 @@ MonoBehaviour:
   maxSpeed: 60
   deathSound: {fileID: 0}
   deathSoundRandomPitch: {x: 0, y: 0}
+  IsDead: 0
 --- !u!198 &198125695610156110
 ParticleSystem:
   m_ObjectHideFlags: 1

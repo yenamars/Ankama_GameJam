@@ -28,7 +28,7 @@ public class BaseTrap : MonoBehaviour, IDamageable
         m_renderer.sprite = m_activeTimer < 0 ? ActiveSprite : OffSprite;
     }
     
-    public void OnTriggerEnter2D(Collider2D collider)
+    public void OnTriggerStay2D(Collider2D collider)
     {
         if(m_activeTimer > 0)
             return;

@@ -4,9 +4,9 @@ Shader "CapitalismTrap/Sprite/WorldSpaceTexture"
 {
     Properties
     {
-    	_TextureSize ("TextureSize", Vector) = (1.0, 1.0, 1.0, 1.0)
         [PerRendererData] _MainTex ("Sprite Texture", 2D) = "white" {}
         _Color ("Tint", Color) = (1,1,1,1)
+        _RepeatParams ("X = RepeatSize, Y = SwapXY, Z = Repeat X, W = Repeat Y", Vector) = (24.0, 0.0, 1.0, 1.0)
         [MaterialToggle] PixelSnap ("Pixel snap", Float) = 0
         [HideInInspector] _RendererColor ("RendererColor", Color) = (1,1,1,1)
         [HideInInspector] _Flip ("Flip", Vector) = (1,1,1,1)
@@ -41,7 +41,8 @@ Shader "CapitalismTrap/Sprite/WorldSpaceTexture"
             #pragma multi_compile _ ETC1_EXTERNAL_ALPHA
             #include "UnitySprites.cginc"
 
-        float4 _TextureSize;
+        float4 _MainTex_TexelSize;
+        float4 _RepeatParams;
 
         v2f MySpriteVert(appdata_t IN)
 		{
@@ -55,7 +56,12 @@ Shader "CapitalismTrap/Sprite/WorldSpaceTexture"
 		#endif
 
 		    OUT.vertex = UnityObjectToClipPos(IN.vertex);
-		    OUT.texcoord = mul(unity_ObjectToWorld, IN.vertex).xy / _TextureSize.xy;
+
+		    float2 repeatUV = (mul(unity_ObjectToWorld, IN.vertex).xy / _MainTex_TexelSize.zw) * _RepeatParams.x;
+		    repeatUV = lerp(repeatUV.xy, repeatUV.yx, _RepeatParams.y);
+
+		    OUT.texcoord = lerp(IN.texcoord.xy, repeatUV, _RepeatParams.zw);
+
 		    OUT.color = IN.color * _Color * _RendererColor;
 
 		    #ifdef PIXELSNAP_ON
