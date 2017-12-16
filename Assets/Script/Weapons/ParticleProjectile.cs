@@ -81,7 +81,7 @@ public class ParticleProjectile : MonoBehaviour
                 for (int i = 0; i < collisionsCount; i++)
                 {
                     //Vector3 moy = (collisionEvents[i].velocity - collisionEvents[i].normal).normalized;
-                    d.Hit(damages, -collisionEvents[i].normal * pushForce);
+                    d.Hit(damages, collisionEvents[i].velocity.normalized * pushForce);
 
                     if (other.layer == 9)
                     {

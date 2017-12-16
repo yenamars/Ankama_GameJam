@@ -65,7 +65,7 @@ public class SceneRoot : MonoBehaviour
 				GameObject PrefadToInstanciate = TraderPrefab;
 				if (difficulty > 4)
 					PrefadToInstanciate = Random.value > 0.5f ? ShooterPrefab : TraderPrefab;
-				if (difficulty > 7 && i == 0)
+				if (difficulty > 8 && i == 0)
 					PrefadToInstanciate = DonaldPrefab;
 				Instantiate(PrefadToInstanciate, MobeRoot.transform).transform.position = spawnPos;
 				
@@ -112,10 +112,6 @@ public class SceneRoot : MonoBehaviour
                     spawnerMobsAreAlive = true;
                 }
             }
-        }
-        else
-        {
-            spawnerMobsAreAlive = true;
         }
 
         if (spawnerMobsAreAlive == false && aliveCount == 0 && State == LevelState.Play) 

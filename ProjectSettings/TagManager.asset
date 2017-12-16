@@ -62,6 +62,9 @@ TagManager:
   - name: Front
     uniqueID: 2853892255
     locked: 0
+  - name: Money
+    uniqueID: 1383944739
+    locked: 0
   - name: UI
     uniqueID: 3867303457
     locked: 0

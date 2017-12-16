@@ -12,6 +12,9 @@ public class PlayerMoveControler : Actor
 	[HideInInspector]
     public BaseWeapon weapon;
     public SoundToPlay fallSound;
+    public ParticleSystem[] lifeGainFX;
+    public ParticleSystem smokeFallFX;
+    public ParticleSystem smokeRunFX;
 
 	[HideInInspector] public Vector3 Orientation;
     private bool isAlive;
@@ -53,6 +56,7 @@ public class PlayerMoveControler : Actor
 	{
         if (isAlive == false)
             return;
+        
         if(m_mainCamera == null)
 	        m_mainCamera = Camera.main;
 		base.Update();
@@ -63,6 +67,7 @@ public class PlayerMoveControler : Actor
         if (Direction.x != 0.0f || Direction.y != 0.0f)
         {
             animator.SetBool("Running", true); 
+            smokeRunFX.Emit(1);
         }
         else
         {
@@ -105,6 +110,7 @@ public class PlayerMoveControler : Actor
 	{
 		StackableShake.instance.Shake(ShakeData);
         SoundManager.instance.PlaySound(fallSound);
+        smokeFallFX.Play(false);
 	}
 
     public bool IsAlive()
@@ -124,6 +130,17 @@ public class PlayerMoveControler : Actor
 
 	public override void Hit(int damages, Vector2 pushForce)
 	{
+        if (isAlive == false)
+            return;
+        
+        if (damages < 0)
+        {
+            for (int i = 0; i < lifeGainFX.Length; i++)
+            {
+                lifeGainFX[i].Play(false);
+            }
+        }
+
         base.Hit(damages, pushForce);
 
         LifeGauge.fillAmount = (float)(m_lifePoint) / LifePoint;
@@ -163,9 +180,14 @@ public class PlayerMoveControler : Actor
         Arm.SetActive(false);
 
         animator.SetTrigger("Death");
+        StartCoroutine(ReloadCoroutine());
+    }
 
+    IEnumerator ReloadCoroutine()
+    {
+        yield return new WaitForSeconds(1.0f);
         if(SceneControler.Instance != null)
-	        SceneControler.Instance.Reload();
+            SceneControler.Instance.Reload();
     }
 
 	private List<Collider2D> m_colliders;

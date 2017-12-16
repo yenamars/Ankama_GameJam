@@ -41,7 +41,7 @@ public class BurstingBarrel : Actor
 
 	private IEnumerator Burst()
 	{
-yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.2f);
 		StackableShake.instance.Shake(destroyShake);
 
 		Collider2D[] colls = Physics2D.OverlapCircleAll(m_rigidbody.position, range, damagesLayer, -1.0f, 1.0f);
@@ -53,7 +53,7 @@ yield return new WaitForSeconds(0.2f);
 			if (d != null)
 			{
 				Vector3 p = colls[i].transform.position;
-				d.Hit(Strength, (m_rigidbody.position - new Vector2(p.x, p.y)).normalized * push);
+				d.Hit(Strength, -(m_rigidbody.position - new Vector2(p.x, p.y)).normalized * push);
 			}
 		}
 		base.OnDeath();

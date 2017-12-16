@@ -63,7 +63,7 @@ public class SceneControler : MonoBehaviour
 		m_ChangerPanel.FaderText.text = "FLOOR " + (50- m_finshedLevelCount).ToString();
 		TweenAlpha.AddTween(m_ChangerPanel.Fader, 0, 1, 0.3f);
 		yield return new WaitForSeconds(00.3f);
-		SceneManager.LoadScene("s02",LoadSceneMode.Additive);
+		SceneManager.LoadScene("Level_01", LoadSceneMode.Additive);
 		//SceneManager.UnloadSceneAsync("Splash");
 		Player.animator.SetTrigger("Out");
 		
@@ -98,13 +98,14 @@ public class SceneControler : MonoBehaviour
 		//m_ChangerPanel.LoaderPanel.SetTrigger("Slide");
 		TweenAlpha.AddTween(m_ChangerPanel.Fader, 0, 1, 0.3f);
 		yield return new WaitForSeconds(1.0f);
-		string sceneName = "s" + string.Format("{0:D2}", m_currentSceneID);
+		//string sceneName = "s" + string.Format("{0:D2}", m_currentSceneID);
+        string sceneName = "Level_" + m_currentSceneID.ToString("00");
 		SceneManager.UnloadSceneAsync(sceneName);
 		m_currentSceneID = m_currentSceneID + 1;
 		if (m_currentSceneID > 7)
-			m_currentSceneID = 4;
+			m_currentSceneID = 3;
 		m_currentDifficulty = m_currentDifficulty + 1;
-		sceneName = "s" + string.Format("{0:D2}", m_currentSceneID);
+        sceneName = "Level_" + m_currentSceneID.ToString("00");
 		SceneManager.LoadScene(sceneName,LoadSceneMode.Additive);
 		//SceneManager.UnloadSceneAsync("Splash");
 		Player.animator.SetTrigger("Out");
@@ -126,7 +127,7 @@ public class SceneControler : MonoBehaviour
 	}
 	
 	private SceneChanger m_ChangerPanel;
-	private int m_currentSceneID = 2;
+	private int m_currentSceneID = 1;
 	private int m_currentDifficulty = 2;
 
 	private int m_finshedLevelCount = 0;
@@ -142,6 +143,8 @@ public class SceneControler : MonoBehaviour
 		
 		TweenAlpha.AddTween(m_ChangerPanel.GameOver.gameObject, 0, 1, 0.3f);
 		TweenAlpha.AddTween(m_ChangerPanel.Fader, 0, 1, 0.3f);
+
+        yield return new WaitForSeconds(2.0f);
 
         while (click == false)
         {

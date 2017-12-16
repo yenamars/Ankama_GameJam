@@ -591,7 +591,7 @@ MonoBehaviour:
   cannons:
   - {fileID: 4791333223342844}
   bulletsPerShot: 1
-  shootRateBase: 0.2
+  shootRateBase: 0.15
   delayBetweenCannons: 0
   id: 2
   shooting: 0

@@ -15,6 +15,8 @@ public class Actor : MonoBehaviour,IDamageable
     public Animator animator;
     public int score;
 
+    private int maxLifePoints;
+
 	public virtual void Awake()
 	{
 		m_rigidbody = GetComponent<Rigidbody2D>();
@@ -71,6 +73,11 @@ public class Actor : MonoBehaviour,IDamageable
 		{
 			OnDeath();
 		}
+
+        if (m_lifePoint > LifePoint)
+        {
+            m_lifePoint = LifePoint;
+        }
 	}
 
 	public void StopFor(float i)
