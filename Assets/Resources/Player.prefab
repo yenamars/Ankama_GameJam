@@ -445,6 +445,7 @@ MonoBehaviour:
   smokeFallFX: {fileID: 198925357490960442}
   smokeRunFX: {fileID: 198525829127327586}
   Orientation: {x: 0, y: 0, z: 0}
+  isAlive: 0
   Mask:
     serializedVersion: 2
     m_Bits: 512
@@ -14105,8 +14106,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -910181603
-  m_SortingLayer: -3
+  m_SortingLayerID: 1052686215
+  m_SortingLayer: -2
   m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: be6b8cd26792f499bb35fd8171651570, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

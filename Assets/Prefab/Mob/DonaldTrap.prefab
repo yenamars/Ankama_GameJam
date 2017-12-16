@@ -7830,7 +7830,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1761507104
+  randomSeed: -676891138
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -14515,7 +14515,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -481480594
+  randomSeed: 1863362838
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -17880,7 +17880,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1546132636
+  randomSeed: 2046038463
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -24604,7 +24604,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1726296031
+  randomSeed: -1902611423
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -31242,7 +31242,7 @@ ParticleSystem:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1066202678431570}
   serializedVersion: 5
-  lengthInSec: 1
+  lengthInSec: 2
   simulationSpeed: 1
   stopAction: 0
   looping: 0
@@ -31295,14 +31295,14 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1399234545
+  randomSeed: 577036713
   InitialModule:
     serializedVersion: 3
     enabled: 1
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 2
       minScalar: 0.25
       maxCurve:
         serializedVersion: 2
@@ -31805,7 +31805,7 @@ ParticleSystem:
           m_PostInfinity: 2
           m_RotationOrder: 4
     arc:
-      value: 60
+      value: 360
       mode: 0
       spread: 0
       speed:
@@ -37966,7 +37966,7 @@ ParticleSystem:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1811887578146064}
   serializedVersion: 5
-  lengthInSec: 1
+  lengthInSec: 2
   simulationSpeed: 1
   stopAction: 0
   looping: 0
@@ -41961,8 +41961,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -910181603
-  m_SortingLayer: -3
+  m_SortingLayerID: 1052686215
+  m_SortingLayer: -2
   m_SortingOrder: 6
   m_Sprite: {fileID: 21300000, guid: be6b8cd26792f499bb35fd8171651570, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

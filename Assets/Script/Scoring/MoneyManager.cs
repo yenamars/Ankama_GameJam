@@ -16,6 +16,7 @@ public class MoneyManager : MonoBehaviour
     
     private ParticleSystem.Particle[] particles;
     private Transform playerTransform;
+    private PlayerMoveControler player;
     private Transform trsf;
     private bool recup;
 
@@ -37,8 +38,15 @@ public class MoneyManager : MonoBehaviour
 	void Awake () 
     {
         DontDestroyOnLoad(gameObject);
-        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
         trsf = transform;
+
+        GameObject go = GameObject.FindGameObjectWithTag("Player");
+        if (go != null)
+        {
+            player = go.GetComponent<PlayerMoveControler>();
+            playerTransform = go.transform; 
+        }
+
         currentScore = 0;
         particles = new ParticleSystem.Particle[pSystem.main.maxParticles];
         recup = false;
@@ -46,9 +54,17 @@ public class MoneyManager : MonoBehaviour
 	
 	void Update () 
     {
-        if(playerTransform == null && GameObject.FindGameObjectWithTag("Player") != null)
-            playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
-        if(playerTransform == null)
+        if (player == null)
+        {
+            GameObject go = GameObject.FindGameObjectWithTag("Player");
+            if (go != null)
+            {
+                player = go.GetComponent<PlayerMoveControler>();
+                playerTransform = go.transform; 
+            }
+        }
+
+        if(playerTransform == null || player == null || player.isAlive == false)
             return;
         
         recup = false;

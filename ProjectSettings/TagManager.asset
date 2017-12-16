@@ -50,6 +50,9 @@ TagManager:
   - name: TrapGround
     uniqueID: 989673143
     locked: 0
+  - name: Shadows
+    uniqueID: 1052686215
+    locked: 0
   - name: GroundFX
     uniqueID: 3174473715
     locked: 0
