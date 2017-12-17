@@ -50,6 +50,11 @@ public class SceneControler : MonoBehaviour
             loading = true;
             Seek();
         }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
 	}
 
 	public void Seek()
