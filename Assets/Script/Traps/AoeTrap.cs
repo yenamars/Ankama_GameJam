@@ -16,17 +16,7 @@ public class AoeTrap : BaseTrap
 
 	protected override void ApplyEffect(TrapTarget trapped)
 	{
-	    
 	    StartCoroutine(Burst());
-        
-
-//		foreach (Actor actor in m_mobRoot.GetComponentsInChildren<Actor>())
-//		{
-//			Vector3 distanceToTrap = actor.transform.position - transform.position;
-//			distanceToTrap.z = 0;
-//            if(distanceToTrap.sqrMagnitude < range*range)
-//				actor.Hit(power,Vector2.zero);
-//		}
 	}
 
     private IEnumerator Burst()

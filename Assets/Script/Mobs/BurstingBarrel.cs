@@ -4,39 +4,36 @@ using UnityEngine;
 
 public class BurstingBarrel : Actor
 {
-
 	[Header("Barrel")] 
     public int Strength = 200;
     public float push = 1.0f;
     public LayerMask damagesLayer;
+    public ParticleSystem flamesFX;
 
     [Header("Shake")] public StackableShakeData destroyShake;
 	public float range = 1.5f;
+    private ParticleSystem.EmissionModule emissionModule;
 
 	public void Awake()
 	{
 		base.Awake();
 		m_mobRoot = GameObject.FindGameObjectWithTag("MobRoot");
+        emissionModule = flamesFX.emission;
+        emissionModule.enabled = false;
+        emissionModule.rateOverTime = 0.0f;
 	}
 
     public override void Hit(int damages, Vector2 pushForce)
     {
         base.Hit(damages, pushForce);
         m_rigidbody.AddForce(pushForce, ForceMode2D.Impulse);
+        emissionModule.enabled = true;
+        emissionModule.rateOverTime = (LifePoint - m_lifePoint) * 3.0f;
     }
 
 	public override void OnDeath()
 	{
 		StartCoroutine(Burst());
-	
-
-//		foreach (Actor actor in m_mobRoot.GetComponentsInChildren<Actor>())
-//		{
-//			Vector3 distanceToTrap = actor.transform.position - transform.position;
-//			distanceToTrap.z = 0;
-//			if(distanceToTrap.magnitude < range)
-//				actor.Hit(Strength,Vector2.zero);
-//		}
 	}
 
 	private IEnumerator Burst()

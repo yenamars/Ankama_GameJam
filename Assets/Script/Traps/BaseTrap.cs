@@ -12,6 +12,7 @@ public class BaseTrap : MonoBehaviour, IDamageable
 
     [Header("Visual")] public Sprite ActiveSprite;
     public Sprite OffSprite;
+    public SpriteRenderer spriteRenderer;
 
     [Header("FXs")]
     public GameObject trapFX;
@@ -22,20 +23,16 @@ public class BaseTrap : MonoBehaviour, IDamageable
         m_renderer = GetComponentInChildren<SpriteRenderer>();
     }
 
-    public void Update()
-    {
-        m_activeTimer -= Time.deltaTime;
-        m_renderer.sprite = m_activeTimer < 0 ? ActiveSprite : OffSprite;
-    }
-    
     public void OnTriggerStay2D(Collider2D collider)
     {
-        if(m_activeTimer > 0)
+        if(m_reloading == true)
             return;
 
         m_activeTimer = CoolDown;
         TrapTarget trapped = collider.GetComponent<TrapTarget>();
         ApplyEffect(trapped);
+
+        StartCoroutine(ReloadCoroutine());
     }
 
     protected virtual void ApplyEffect(TrapTarget trapped)
@@ -47,10 +44,23 @@ public class BaseTrap : MonoBehaviour, IDamageable
         }
     }
 
+    IEnumerator ReloadCoroutine()
+    {
+        m_reloading = true;
+        m_renderer.sprite = OffSprite;
+        spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, 0.0f);
+        yield return new WaitForSeconds(m_activeTimer);
+        m_renderer.sprite = ActiveSprite;
+        spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, 1.0f);
+        m_reloading = false;
+    }
+
     public virtual void Hit(int damages, Vector2 pushForce)
     {
     }
 
     private float m_activeTimer;
     private SpriteRenderer m_renderer;
+
+    private bool m_reloading;
 }
