@@ -66,7 +66,7 @@ public class Openning : MonoBehaviour
 	private IEnumerator LoadScene()
 	{
 		yield return new WaitForSeconds(0.5f);
-		SceneManager.LoadScene("Splash");
+		SceneManager.LoadScene("Title");
 	}
 
 	public float FreezeTimer;

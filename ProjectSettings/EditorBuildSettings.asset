@@ -9,9 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Openning.unity
     guid: 69ba42cd43c4640209c94e4ee154c12e
   - enabled: 1
-    path: Assets/Scenes/Splash.unity
-    guid: 88f1718c239c045049a483eb64c6efb5
-  - enabled: 1
     path: Assets/Scenes/ThoTest.unity
     guid: 0886512ad2369447f835deaf2fd4ba94
   - enabled: 1
@@ -29,6 +26,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level_03.unity
     guid: 5d3d0f18a8a46034cbd19f2e977c5fe8
+  - enabled: 1
+    path: Assets/Scenes/Title.unity
+    guid: 88f1718c239c045049a483eb64c6efb5
   - enabled: 1
     path: Assets/Scenes/Level_04.unity
     guid: 65438338ac282c540b385989a1db3f43
