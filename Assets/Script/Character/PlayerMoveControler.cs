@@ -158,6 +158,9 @@ public class PlayerMoveControler : Actor
 				d.Hit(0, -(transform.position - colls[i].transform.position )* 10);
 			}
 		}
+
+        if(damages > 0)
+            PostProcess.instance.Hit();
 	}
 
 //	private IEnumerator InvulnerableCoroutine()
