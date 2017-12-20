@@ -116,8 +116,10 @@ public class SceneControler : MonoBehaviour
 	}
 	public void LoadNextScene()
 	{
-		StartCoroutine(LoadNextSceneCoroutine());
+		LoadNextRoutine = StartCoroutine(LoadNextSceneCoroutine());
 	}
+
+	private Coroutine LoadNextRoutine;
 
 	private IEnumerator LoadNextSceneCoroutine(float delay = 2)
 	{
@@ -166,16 +168,19 @@ public class SceneControler : MonoBehaviour
 		Player.SetAlive(true);
 		yield return new WaitForSeconds(00.5f);
 		m_root.StartScene(m_currentDifficulty);
+		LoadNextRoutine = null;
 	}
 	
 	public void OnGameOver()
 	{
 		m_root.StopMobs();
+		if(LoadNextRoutine != null)
+			StopCoroutine(LoadNextRoutine);
+		StopCoroutine("LoadNextSceneCoroutine");
 	}
 
 	public void Reload()
 	{
-		StopCoroutine("LoadNextSceneCoroutine");
         m_waitForRestart = true;
 		StartCoroutine(ReloadRoutine());
 	}

@@ -11,7 +11,7 @@ public class LifeGauge : MonoBehaviour
 	
 	public void Awake()
 	{
-		@group.alpha = 0;
+		group.alpha = 0;
 		//GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMoveControler>().LifeGauge = Gauge;
 	}
 
