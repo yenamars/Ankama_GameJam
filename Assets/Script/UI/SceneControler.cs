@@ -148,14 +148,14 @@ public class SceneControler : MonoBehaviour
 		yield return new WaitForSeconds(1.0f);
 		//Destroy(Splash);
 		yield return new WaitForSeconds(0.3f);
-		SceneRoot root = null;
-		while (root == null)
+		m_root = null;
+		while (m_root == null)
 		{
-			root = GameObject.FindGameObjectWithTag("SceneRoot").GetComponent<SceneRoot>();
+			m_root = GameObject.FindGameObjectWithTag("SceneRoot").GetComponent<SceneRoot>();
 			//yield return new WaitForEndOfFrame();
 			yield return new WaitForSeconds(1.0f);
 		}
-		Player.transform.position = root.PlayerSpawn.position;
+		Player.transform.position = m_root.PlayerSpawn.position;
 		//m_ChangerPanel.LoaderPanel.SetTrigger("SlideOut");
 		TweenAlpha.AddTween(m_ChangerPanel.Fader, 1, 0, 0.3f);
 		//GameObject.FindGameObjectWithTag("SceneRoot").GetComponent<Animator>().SetTrigger("Slide");
@@ -165,9 +165,13 @@ public class SceneControler : MonoBehaviour
 		yield return new WaitForSeconds(00.5f);
 		Player.SetAlive(true);
 		yield return new WaitForSeconds(00.5f);
-		root.StartScene(m_currentDifficulty);
+		m_root.StartScene(m_currentDifficulty);
 	}
 	
+	public void OnGameOver()
+	{
+		m_root.StopMobs();
+	}
 
 	public void Reload()
 	{
@@ -204,4 +208,6 @@ public class SceneControler : MonoBehaviour
     private bool m_waitForRestart = false;
 
 	private UIRoot m_uiroot;
+	private SceneRoot m_root;
+
 }

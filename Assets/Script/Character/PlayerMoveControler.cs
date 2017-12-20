@@ -189,6 +189,8 @@ public class PlayerMoveControler : Actor
 
     IEnumerator ReloadCoroutine()
     {
+	    if(SceneControler.Instance != null)
+		    SceneControler.Instance.OnGameOver();
         yield return new WaitForSeconds(3.0f);
         if(SceneControler.Instance != null)
             SceneControler.Instance.Reload();

@@ -106,6 +106,10 @@ public class BaseAI : Actor
     {
         StartCoroutine(DeathCoroutine());
     }
+	public void Stop()
+	{
+		isActive =false;
+	}
 
     IEnumerator DeathCoroutine()
     {
@@ -157,4 +161,6 @@ public class BaseAI : Actor
     }
 
 	protected GameObject m_target;
+
+	
 }

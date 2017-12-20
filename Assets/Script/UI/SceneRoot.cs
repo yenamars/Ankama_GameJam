@@ -120,6 +120,17 @@ public class SceneRoot : MonoBehaviour
 			OnSceneClear();
 		}
 	}
+	public void StopMobs()
+	{
+		for (int i = 0; i < spawners.Length; i++)
+		{
+			spawners[i].Stop();
+		}
+		foreach (BaseAI ai in m_BaseMobs)
+		{
+			ai.Stop();
+		}
+	}
 
 	public void OnSceneClear()
 	{
@@ -128,6 +139,8 @@ public class SceneRoot : MonoBehaviour
 
 	private List<BaseAI> m_BaseMobs;
     private Spawner[] spawners;
+
+	
 }
 
 public enum LevelType
