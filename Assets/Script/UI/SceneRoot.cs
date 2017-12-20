@@ -122,6 +122,7 @@ public class SceneRoot : MonoBehaviour
 	}
 	public void StopMobs()
 	{
+		State = LevelState.Outro;
 		for (int i = 0; i < spawners.Length; i++)
 		{
 			spawners[i].Stop();

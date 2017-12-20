@@ -122,7 +122,7 @@ public class SceneControler : MonoBehaviour
 	private IEnumerator LoadNextSceneCoroutine(float delay = 2)
 	{
 		
-		m_ChangerPanel.FaderText.text = "FLOOR " + (50- m_finshedLevelCount).ToString();
+		m_ChangerPanel.FaderText.text = "FLOOR " + ( m_finshedLevelCount).ToString();
 		m_finshedLevelCount++;
 		yield return new WaitForSeconds(delay);
 		Player.SetAlive(false);
@@ -175,6 +175,7 @@ public class SceneControler : MonoBehaviour
 
 	public void Reload()
 	{
+		StopCoroutine("LoadNextSceneCoroutine");
         m_waitForRestart = true;
 		StartCoroutine(ReloadRoutine());
 	}
@@ -194,7 +195,12 @@ public class SceneControler : MonoBehaviour
 		GameObject.Destroy(Player.gameObject);
 		m_currentDifficulty = 0;
 		m_finshedLevelCount = 0;
+		#if DEMO
 		SceneManager.LoadScene("Openning");
+	#else
+		
+		SceneManager.LoadScene("Title");
+		#endif
 		
 	}
 
