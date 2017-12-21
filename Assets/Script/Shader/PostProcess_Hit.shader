@@ -48,16 +48,15 @@
 
 			fixed4 frag (v2f i) : SV_Target
 			{
-			_Hit = 1.0;
 				fixed v = smoothstep(_HitParams.x, _HitParams.y, length(i.uv - 0.5));
 				fixed4 n = tex2D(_NoiseTex, float2(_Time.y, 0.0) * _HitParams.z)-0.5;
 
 				fixed4 col = tex2D(_MainTex, i.uv);
 				fixed colR = tex2D(_MainTex, i.uv + v*n.x*_HitParams.w*_Hit).x;
-				fixed colG = tex2D(_MainTex, i.uv + v*n.y*_HitParams.w*_Hit).y;
-				fixed colB = tex2D(_MainTex, i.uv + v*n.z*_HitParams.w*_Hit).z;
-				fixed4 colHit = fixed4(colR, colG, colB, 1.0);
-				return lerp(col, colHit * (1.0 + v * _HitColor), _Hit);
+//				fixed colG = tex2D(_MainTex, i.uv + v*n.y*_HitParams.w*_Hit).y;
+//				fixed colB = tex2D(_MainTex, i.uv + v*n.z*_HitParams.w*_Hit).z;
+				fixed4 colHit = fixed4(colR, col.y, col.z, 1.0);
+				return lerp(col, colHit * (1.0 + v * _HitColor * 2.0), _Hit);
 			}
 			ENDCG
 		}

@@ -109,6 +109,7 @@ public class BaseAI : Actor
 	public void Stop()
 	{
 		isActive =false;
+        m_rigidbody.velocity = Vector2.zero;
 	}
 
     IEnumerator DeathCoroutine()
