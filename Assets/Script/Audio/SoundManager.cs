@@ -13,6 +13,9 @@ public class SoundToPlay
 public class SoundManager : MonoBehaviour 
 {
     [SerializeField] private AudioSource adSource;
+    [SerializeField] private AudioSource musicSource;
+    [SerializeField] private AudioClip[] musicsClips;
+
     public static SoundManager instance
     {
         get
@@ -39,5 +42,16 @@ public class SoundManager : MonoBehaviour
         adSource.volume = soundToPlay.volume;
         adSource.pitch = Random.Range(soundToPlay.pitch.x, soundToPlay.pitch.y);
         adSource.Play();
+    }
+
+    public void PlayMusic(int musicIndex)
+    {
+        musicSource.clip = musicsClips[musicIndex];
+        musicSource.Play();
+    }
+
+    public void StopMusic()
+    {
+        musicSource.Stop();
     }
 }

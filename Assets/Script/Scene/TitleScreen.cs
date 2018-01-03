@@ -17,6 +17,8 @@ public class TitleScreen : MonoBehaviour {
 		{
 			SceneManager.LoadScene("Splash",LoadSceneMode.Additive);
 		}
+
+        SoundManager.instance.PlayMusic(0);
 	}
 	
 	// Update is called once per frame

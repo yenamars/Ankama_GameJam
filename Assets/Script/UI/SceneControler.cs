@@ -10,13 +10,10 @@ public class SceneControler : MonoBehaviour
 
 	[HideInInspector]
 	public PlayerMoveControler Player;
-	
-
 	public static SceneControler Instance;
     private bool loading;
     private bool click;
 
-	// Use this for initialization
 	void Awake ()
 	{
 		Instance = this;
@@ -31,6 +28,7 @@ public class SceneControler : MonoBehaviour
 	{
 		StartCoroutine(StartGameCoroutine());
 	}
+
 	private IEnumerator StartGameCoroutine()
 	{
 
@@ -53,9 +51,10 @@ public class SceneControler : MonoBehaviour
 		
 		//yield return new WaitForSeconds(10);
 		LoadNextScene(0,"Title");
+
+        SoundManager.instance.PlayMusic(1);
 	}
 
-	// Update is called once per frame
 	void Update () 
     {
         if (Input.GetMouseButtonDown(0))
@@ -121,7 +120,7 @@ public class SceneControler : MonoBehaviour
 
 	private Coroutine LoadNextRoutine;
 
-	private IEnumerator LoadNextSceneCoroutine(float delay = 2)
+	private IEnumerator LoadNextSceneCoroutine(float delay = 2.0f)
 	{
 		
 		m_ChangerPanel.FaderText.text = "FLOOR " + ( m_finshedLevelCount).ToString();
@@ -149,13 +148,13 @@ public class SceneControler : MonoBehaviour
 		Player.animator.SetTrigger("Out");
 		yield return new WaitForSeconds(1.0f);
 		//Destroy(Splash);
-		yield return new WaitForSeconds(0.3f);
+		//yield return new WaitForSeconds(0.3f);
 		m_root = null;
 		while (m_root == null)
 		{
 			m_root = GameObject.FindGameObjectWithTag("SceneRoot").GetComponent<SceneRoot>();
-			//yield return new WaitForEndOfFrame();
-			yield return new WaitForSeconds(1.0f);
+			yield return new WaitForEndOfFrame();
+			//yield return new WaitForSeconds(1.0f);
 		}
 		Player.transform.position = m_root.PlayerSpawn.position;
 		//m_ChangerPanel.LoaderPanel.SetTrigger("SlideOut");
@@ -177,6 +176,8 @@ public class SceneControler : MonoBehaviour
 		if(LoadNextRoutine != null)
 			StopCoroutine(LoadNextRoutine);
 		StopCoroutine("LoadNextSceneCoroutine");
+
+        SoundManager.instance.PlayMusic(2);
 	}
 
 	public void Reload()

@@ -389,7 +389,7 @@ public class Pathfinder : EditorWindow
 		}
 			
 		//ComputeSelectSquare(sceneView);
-		bool validEvent = (Event.current.type == EventType.mouseDown ) && Event.current.button == 0;
+		bool validEvent = (Event.current.type == EventType.MouseDown ) && Event.current.button == 0;
 
 		if(validEvent == false) return;
 
@@ -411,7 +411,7 @@ public class Pathfinder : EditorWindow
 			if (Event.current.type == EventType.MouseMove && Event.current.modifiers == EventModifiers.Shift)
 			{
 			}
-			if (Event.current.type == EventType.mouseDown && Event.current.button == 0)
+			if (Event.current.type == EventType.MouseDown && Event.current.button == 0)
 			{
 				Point selectedTile = null;
 				PathfindNode selectedNode = null;
